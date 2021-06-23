@@ -16,7 +16,19 @@ public class AuthController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/views/auth/login.jsp");
+		String action = req.getParameter("action");
+		RequestDispatcher rd= null;
+		switch (action) {
+		case "login":
+			rd = req.getRequestDispatcher("/views/auth/login.jsp");
+			break;
+		case "register":
+			rd = req.getRequestDispatcher("/views/auth/register.jsp");
+			break;
+		default:
+			break;
+		}
+		
 		rd.forward(req, resp);
 	}
 }

@@ -156,6 +156,11 @@ a{
     transition: .3s;
 }
 
+.option{
+	display: flex;
+	justify-content: space-between;
+}
+
 a:hover{
     color: #38d39f;
 }
