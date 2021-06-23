@@ -8,9 +8,9 @@
         <pattern>/auth*</pattern>
     </decorator> -->
     
-    <!-- <decorator name="main" page="main-layout.jsp"> 
+    <decorator name="main" page="main-layout.jsp"> 
         <pattern>/*</pattern>
-    </decorator> -->
+    </decorator> 
     
   
 </decorators>
