@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@include file="/common/taglib.jsp" %>
 
 <html>
@@ -10,10 +9,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">   
         <!--BOOSTRAP-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        
+
         <!--CSS HOME-->
-        <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/home.css' />">
-        
+        <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/home.css'/>"/>
         <title>
             <dec:title />
         </title>
@@ -22,6 +20,7 @@
     </head>
 
     <body >
+        <!--<h1 class="test"> nghia</h1>-->
         <jsp:include page="/common/header.jsp" />
         <dec:body />
         <jsp:include page="/common/footer.jsp" />
