@@ -13,7 +13,8 @@
         
         <!--CSS HOME-->
         <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/home.css' />">
-        
+        <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/cart.css' />">
+
         <title>
             <dec:title />
         </title>
