@@ -4,13 +4,11 @@
         <pattern>/api*</pattern>
     </excludes>
     
-    <!--  <decorator name="auth" page="auth-layout.jsp">
+      <decorator name="auth" page="auth-layout.jsp">
         <pattern>/auth*</pattern>
-    </decorator> -->
+    </decorator>
     
-    <decorator name="main" page="main-layout.jsp"> 
+    <decorator name="main" page="main-layout.jsp">
         <pattern>/*</pattern>
-    </decorator> 
-    
-  
+    </decorator>
 </decorators>
