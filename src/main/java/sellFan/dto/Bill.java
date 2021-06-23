@@ -1,4 +1,4 @@
-package sellFan.models;
+package sellFan.dto;
 
 import java.math.BigInteger;
 import lombok.Builder;

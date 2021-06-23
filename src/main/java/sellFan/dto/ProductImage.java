@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sellFan.models;
+package sellFan.dto;
 import lombok.Builder;
 import lombok.Data;
 /**
@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class ProductType {
-    private Integer Id;
+public class ProductImage {
+    private Integer ProductId;
     private String Name;
 }
