@@ -9,11 +9,11 @@ public class UserMapper implements RowMappper<User> {
     @Override
     public User mapRow(ResultSet rs) {
         try {
-            return User.builder()
-                    .Email(rs.getString("email"))
-                    .FullName(rs.getString("fullname"))
-                    .HashedPw(rs.getString("hashedPw"))
-                    .build();
+            User u = new User();
+            u.setEmail(rs.getString("email"));
+            u.setFullName(rs.getString("fullname"));
+            u.setHashedPw(rs.getString("hashedPw"));
+            return u;
         } catch (SQLException throwables) {
             return null;
         }

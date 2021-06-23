@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
  * @author NghiaDX
  */
 @Data
-@Builder
-@NoArgsConstructor
 public class User {
     private String Email;
     private String HashedPw;

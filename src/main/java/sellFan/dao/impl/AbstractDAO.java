@@ -8,16 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.annotation.ManagedBean;
+
+@ManagedBean
 public abstract class AbstractDAO<T> implements GenericDAO<T> {
 
     ResourceBundle mybundle = ResourceBundle.getBundle("dbConnect");
 
     public Connection getConnection() {
         try {
-            Class.forName(mybundle.getString("driverName"));
-            String url = mybundle.getString("url");
-            String user =  mybundle.getString("user");
-            String pass = mybundle.getString("pass");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://" + mybundle.getString("IP") + ":" + mybundle.getString("Port") + "/" + mybundle.getString("Database");
+            String user =  mybundle.getString("User");
+            String pass = mybundle.getString("Password");
             return DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public User findByEmail(String email) {
-        String query = "SELECT * FROM User";
+        String query = "SELECT * FROM user where email=?";
         List<User> user =  query(query, new UserMapper(), email);
         return user.isEmpty() ? null: user.get(0);
     }
