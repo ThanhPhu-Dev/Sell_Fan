@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<title>Title</title>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<title>Giỏ hàng</title>
 <main class="main bg-light">
     <div class="container">
         <div class="row">
@@ -53,11 +54,11 @@
                                 <div class="cart-item__right text-end">
                                     <p class="text-dark fs-09">900.000đ</p>
                                     <div class="d-flex align-items-center w-100 bg-white cart-item__quantity">
-                                        <button class="bg-white border mx-0" disabled>
+                                        <button class="bg-white border border-right-0 mx-0" disabled>
                                             <ion-icon name="remove-outline"></ion-icon>
                                         </button>
                                         <div class="quantity border fs-09 position-relative">1</div>
-                                        <button class="bg-white border text-primary">
+                                        <button class="bg-white border border-left-0 text-primary">
                                             <ion-icon name="add-outline"></ion-icon>
                                         </button>
                                     </div>
@@ -123,3 +124,4 @@
         </div>
     </div>
 </main>
+<script src="<c:url value='/template/js/cart.js'/>"></script>
