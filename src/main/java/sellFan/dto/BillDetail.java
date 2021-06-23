@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sellFan.models;
+package sellFan.dto;
 import lombok.Builder;
 import lombok.Data;
 /**
@@ -12,8 +12,10 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class User {
-    private String Email;
-    private String HashedPw;
-    private String FullName;
+public class BillDetail {
+    private Integer Id;
+    private Integer BillId;
+    private Integer ProductId;
+    private Integer Quantity;
+    private Integer Total;
 }
