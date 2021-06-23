@@ -10,6 +10,16 @@
 <main class="main bg-light">
     <div class="container">
         <div class="row">
+<%--            <div class="col-12 mt-5">--%>
+<%--                <div class="d-flex align-items-center flex-column justify-content-center">--%>
+<%--                    <img src="https://www.dienmayxanh.com/lich-su-mua-hang/Content/images/gio-hang-rong-desk.png" alt="">--%>
+<%--                    <strong class="text-dark fs-5">Bạn chưa có đơn hàng nào</strong>--%>
+<%--                    <button class="btn btn-outline-primary bg-white mt-2">--%>
+<%--                        <a href="/" class="text-decoration-none d-block px-3 py-1">Về trang chủ</a>--%>
+<%--                    </button>--%>
+<%--                    <p class="fs-09 text-dark mt-2">Khi cần hỗ trợ vui lòng gọi <span class="text-primary">1800.1061</span> (7h30 - 22h)</p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <div class="col-0 col-md-3"></div>
             <div class="col-12 col-md-6">
                 <div class="cart-wrapper mt-2">
