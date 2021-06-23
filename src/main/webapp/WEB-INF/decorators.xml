@@ -4,7 +4,7 @@
         <pattern>/api*</pattern>
     </excludes>
     
-    <!--  <decorator name="login" page="main-auth.jsp">
+    <!--  <decorator name="auth" page="auth-layout.jsp">
         <pattern>/auth*</pattern>
     </decorator> -->
     
