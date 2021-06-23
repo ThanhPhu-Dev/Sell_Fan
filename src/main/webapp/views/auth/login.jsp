@@ -11,7 +11,8 @@
 		</div>
 		<div class="div">
 			<h5>Email</h5>
-			<input type="email" class="input" required autofocus>
+			<input type="email" pattern="^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$"
+				   class="input" required autofocus>
 		</div>
 	</div>
 	<div class="input-div pass">
@@ -20,11 +21,11 @@
 		</div>
 		<div class="div">
 			<h5>Mật Khẩu</h5>
-			<input type="password" class="input" required>
+			<input type="password" pattern="^[\w]{8}" class="input" required>
 		</div>
 	</div>
 	<div class="option">
-		<a href="./auth?action=register">Register</a> 
+		<a href="./auth/register">Register</a>
 		<a href="#">Quên mật khẩu?</a>
 	</div>
 	<input type="submit" class="btn" value="Đăng Nhập">
