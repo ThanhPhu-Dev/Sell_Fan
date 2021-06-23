@@ -6,12 +6,13 @@
 package sellFan.dto;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author NghiaDX
  */
 @Data
-@Builder
 public class User {
     private String Email;
     private String HashedPw;
