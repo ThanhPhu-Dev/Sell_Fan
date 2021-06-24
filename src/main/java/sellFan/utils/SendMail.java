@@ -45,7 +45,9 @@ public class SendMail {
 
     public static String formMailRegister(HttpServletRequest req, Integer id, String code){
 
-        return "<p>Xin chào, cảm ơn bạn đã đăng ký vào website của chúng tôi</p>"
-                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth\">Nhấp Vào Đây Vào trang đăng nhập</a></p>";
+//        return "<p>Xin chào, cảm ơn bạn đã đăng ký vào website của chúng tôi</p>"
+//                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth\">Nhấp Vào Đây Vào trang đăng nhập</a></p>";
+        return "<p>Xin chào cảm ơn bạn đã đăng ký vào website của chúng tôi</p>"
+                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth/register?action=check&id="+id+"&code="+code+"\">Nhấp Vào Đây để xác thực thành công</a></p>";
     }
 }

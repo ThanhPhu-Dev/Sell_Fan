@@ -1,6 +1,7 @@
 package sellFan.controller;
 
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import sellFan.dao.iterface.IUserDAO;
 import sellFan.dto.User;
@@ -28,8 +29,23 @@ public class RegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.setCharacterEncoding("utf-8");
 //        resp.setCharacterEncoding("utf-8");
+        String id = null;
+        String code = null;
         MessageUtils.setMessageToAttribute(req);
         HttpSession session = req.getSession();
+        if(req.getParameter("action") != null){
+            id=req.getParameter("id");
+            code = req.getParameter("code");
+            User u = userDAO.findById(Integer.parseInt(id));
+            if(u != null){
+                if(u.getCode().equals(code)){
+                    u.setCode(null);
+                    u.setStatus(1);
+                    userDAO.update(u);
+                    session.setAttribute("usercurrent", u);
+                }else return;
+            }else return;
+        }
         if (session.getAttribute("usercurrent") != null) {
             resp.sendRedirect(req.getContextPath() + "/home");
             return;
@@ -54,7 +70,7 @@ public class RegisterController extends HttpServlet {
             usernew.setEmail(email);
             usernew.setHashedPw(BCrypt.hashpw(pass, BCrypt.gensalt(12)));
             usernew.setFullName(name);
-            //usernew.setCode(RandomStringUtils.randomAlphabetic(10));
+            usernew.setCode(RandomStringUtils.randomAlphabetic(10));
             User u = userDAO.save(usernew);
 
             SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));

@@ -44,13 +44,18 @@ public class AuthController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/auth?message=notExists_email");
             return;
         } else {
-            if (BCrypt.checkpw(pass, user.getHashedPw()) == false) {
-                resp.sendRedirect(req.getContextPath() + "/auth?message=incorrect_password");
-                return;
-            } else {
-                HttpSession session = req.getSession();
-                session.setAttribute("usercurrent", user);
-                resp.sendRedirect(req.getContextPath() + "/home");
+            if(user.getStatus() == 1) {
+                if (BCrypt.checkpw(pass, user.getHashedPw()) == false) {
+                    resp.sendRedirect(req.getContextPath() + "/auth?message=incorrect_password");
+                    return;
+                } else {
+                    HttpSession session = req.getSession();
+                    session.setAttribute("usercurrent", user);
+                    resp.sendRedirect(req.getContextPath() + "/home");
+                    return;
+                }
+            }else{
+                resp.sendRedirect(req.getContextPath() + "/auth?message=authentic_email");
                 return;
             }
         }

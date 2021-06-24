@@ -33,6 +33,6 @@
 	<input type="submit" class="btn" value="Đăng Nhập">
 	<div class="option">
 		<a href="./auth/register">Register</a>
-		<a href="#">Quên mật khẩu?</a>
+		<a href="<c:url value="/"/>auth/forgetpassword">Quên mật khẩu?</a>
 	</div>
 </form>
