@@ -5,8 +5,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import sellFan.dao.iterface.IUserDAO;
 import sellFan.dto.User;
+import sellFan.utils.SendMail;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,19 +34,20 @@ public class RegisterController extends HttpServlet {
         String email = req.getParameter("email");
         String name = req.getParameter("username");
         String pass = req.getParameter("password");
+        try {
+            User usernew = new User();
+            usernew.setEmail(email);
+            usernew.setHashedPw(BCrypt.hashpw(pass, BCrypt.gensalt(12)));
+            usernew.setFullName(name);
+            //usernew.setCode(RandomStringUtils.randomAlphabetic(10));
+            User u = userDAO.save(usernew);
 
-
-        //tạo ramdomstring active
-        int length = 10;
-        boolean useLetters = true;
-        boolean useNumbers = false;
-        String generatedString = RandomStringUtils.random(length, useLetters, useNumbers);
-
-        User usernew = new User();
-        usernew.setEmail(email);
-        usernew.setHashedPw(BCrypt.hashpw(pass, BCrypt.gensalt(12)));
-        usernew.setFullName(name);
-
-        //User u = userDAO.save(usernew);
+            SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
+            System.out.println("thành công");
+            String url = req.getContextPath();
+            resp.sendRedirect(req.getContextPath()+"/auth");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }
