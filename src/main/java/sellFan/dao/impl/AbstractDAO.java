@@ -75,7 +75,8 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Date) {
-                    statement.setDate(index, (Date) parameter);
+                    Date date = (Date)parameter;
+                    statement.setDate(index, new java.sql.Date(date.getTime()));
                 }else if (parameter == null) {
 					statement.setNull(index, Types.NULL);
 				}
