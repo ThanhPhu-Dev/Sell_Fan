@@ -13,11 +13,6 @@
                 <img src="<c:url value="/template/image/logo.png"/>" alt="" width="180px" height="40px">
             </div>
             <div class="d-flex align-items-center">
-                <div class="header__search">
-                    <form class="d-flex mb-0">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm">
-                    </form>
-                </div>
                 <div class="mx-2">
                     <a href="/purchase/history" class="text-white text-decoration-none">
                         <span>Lịch sử mua hàng</span>
@@ -31,6 +26,19 @@
                         </button>
                     </a>
                 </div>
+                <!--USER NAME-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar navbar-expand-lg">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                       style="padding: 0;">
+                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="">Đăng xuất</a></li>
+                    </ul>
+                </nav>
             </div>
 
         </div>
