@@ -1,10 +1,10 @@
 package sellFan.controller;
 
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import sellFan.dao.iterface.IUserDAO;
 import sellFan.dto.User;
+import sellFan.utils.MessageUtils;
 import sellFan.utils.SendMail;
 
 import javax.inject.Inject;
@@ -15,8 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 @WebServlet(urlPatterns = {"/auth/register"})
 public class RegisterController extends HttpServlet {
@@ -28,10 +28,11 @@ public class RegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.setCharacterEncoding("utf-8");
 //        resp.setCharacterEncoding("utf-8");
-        ResourceBundle mybundle = ResourceBundle.getBundle("message");
-        if(req.getParameter("message") != null){
-            String value = mybundle.getString(req.getParameter("message"));
-            req.setAttribute("message", new String (value.getBytes("ISO-8859-1"), "UTF-8"));
+        MessageUtils.setMessageToAttribute(req);
+        HttpSession session = req.getSession();
+        if (session.getAttribute("usercurrent") != null) {
+            resp.sendRedirect(req.getContextPath() + "/home");
+            return;
         }
         RequestDispatcher rd = req.getRequestDispatcher("/views/auth/register.jsp");
         rd.forward(req, resp);
@@ -39,12 +40,14 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
         String email = req.getParameter("email");
         String name = req.getParameter("username");
         String pass = req.getParameter("password");
         try {
-            if(userDAO.findByEmail(email) != null){
-                resp.sendRedirect(req.getContextPath()+"/auth/register?message=exists_email");
+            if (userDAO.findByEmail(email) != null) {
+                resp.sendRedirect(req.getContextPath() + "/auth/register?message=exists_email");
                 return;
             }
             User usernew = new User();
@@ -56,7 +59,7 @@ public class RegisterController extends HttpServlet {
 
             SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
             System.out.println("thành công");
-            resp.sendRedirect(req.getContextPath()+"/auth");
+            resp.sendRedirect(req.getContextPath() + "/auth");
         } catch (MessagingException e) {
             e.printStackTrace();
         }
