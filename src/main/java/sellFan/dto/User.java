@@ -19,5 +19,5 @@ public class User {
     private String HashedPw;
     private String FullName;
     private String code;
-    private Boolean status;
+    private Integer status;
 }

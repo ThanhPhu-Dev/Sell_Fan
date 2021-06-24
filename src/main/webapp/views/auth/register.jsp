@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<title>Login</title>
+<title>Register</title>
 <form action="./register" method="post">
     <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
     <h2 class="title">Đăng Ký</h2>
@@ -34,6 +34,11 @@
             <input type="password" pattern="^[\w]{8,}" title="ít nhất 8 ký tự" name="password" class="input" required>
         </div>
     </div>
-    <a href="./auth">Đã có tài khoản</a>
+    <c:if test="${not empty message}">
+        <div class="alert alert-danger alert-message" role="alert">
+           ${message}
+        </div>
+    </c:if>
     <input type="submit" class="btn" value="Đăng Ký">
+    <a href="./auth">Đã có tài khoản</a>
 </form>
