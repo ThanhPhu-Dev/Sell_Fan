@@ -27,8 +27,14 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public User save(User user) {
-        String query = "INSERT INTO user(email, hashedPw, fullname) values (?,?,?)";
-        Long id = Insert(query,user.getEmail(),user.getHashedPw(),user.getFullName());
+        String query = "INSERT INTO user(email, hashedPw, fullname, code) values (?,?,?,?)";
+        Long id = Insert(query,user.getEmail(),user.getHashedPw(),user.getFullName(), user.getCode());
         return findById(id.intValue());
+    }
+
+    @Override
+    public void update(User user) {
+        String query = "UPDATE user SET email = ? , hashedPw = ? , fullname = ? , code = ? , status = 1 where id = ?";
+        Update(query,user.getEmail(),user.getHashedPw(),user.getFullName(), user.getCode(), user.getId());
     }
 }

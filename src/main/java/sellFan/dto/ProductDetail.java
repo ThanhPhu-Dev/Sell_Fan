@@ -11,7 +11,6 @@ import lombok.Data;
  * @author NghiaDX
  */
 @Data
-@Builder
 public class ProductDetail {
     private Integer ProductId;
     private String Type;

@@ -35,10 +35,10 @@
         </div>
     </div>
     <c:if test="${not empty message}">
-        <div class="alert alert-danger alert-message" role="alert">
-           ${message}
+        <div class="alert alert-${alert} alert-message" role="alert">
+                ${message}
         </div>
     </c:if>
     <input type="submit" class="btn" value="Đăng Ký">
-    <a href="./auth">Đã có tài khoản</a>
+    <a href="<c:url value="/"/>auth">Đã có tài khoản</a>
 </form>

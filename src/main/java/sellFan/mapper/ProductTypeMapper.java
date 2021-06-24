@@ -1,12 +1,19 @@
 package sellFan.mapper;
 
-import sellFan.dto.User;
+import sellFan.dto.*;
 
 import java.sql.ResultSet;
 
-public class ProductTypeMapper implements RowMappper<User>{
+public class ProductTypeMapper implements RowMappper<ProductType>{
     @Override
-    public User mapRow(ResultSet rs) {
+    public ProductType mapRow(ResultSet rs) {
+        try {
+            ProductType p = new ProductType();
+            p.setId(rs.getInt("Id"));
+            p.setName(rs.getString("Name"));
+            return p;
+        } catch (Exception e) {
         return null;
+        }
     }
 }
