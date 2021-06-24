@@ -5,11 +5,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 public class SendMail {
 
     public static void sendMailTo(String email, String subject, String message) throws MessagingException {
-
+        ResourceBundle mybundle = ResourceBundle.getBundle("Connect");
+        String emailfrom = mybundle.getString("Email");
+        String pass = mybundle.getString("PasswordEamil");
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
@@ -18,17 +21,17 @@ public class SendMail {
 
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("sv18600207@gmail.com", "thanhphu4422");
+                return new PasswordAuthentication(emailfrom, pass);
             }
         };
         Session session = Session.getInstance(properties, auth);
         // creates a new e-mail message
-        Message msg = new MimeMessage(session);
+        MimeMessage msg = new MimeMessage(session);
 
-        msg.setFrom(new InternetAddress("sv18600207@gmail.com"));
+        msg.setFrom(new InternetAddress(emailfrom));
         InternetAddress[] toAddresses = { new InternetAddress(email) };
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
-        msg.setSubject(subject);
+        msg.setSubject(subject, "UTF-8");
         msg.setContent(message, "text/html; charset=UTF-8");
 
         Transport.send(msg);
