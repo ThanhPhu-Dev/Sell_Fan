@@ -10,6 +10,9 @@ public class MessageUtils {
         try {
             ResourceBundle mybundle = ResourceBundle.getBundle("message");
             if(req.getParameter("message") != null) {
+                if(req.getParameter("alert") != null){
+                    req.setAttribute("alert", req.getParameter("alert"));
+                }
                 String value = mybundle.getString(req.getParameter("message"));
                 req.setAttribute("message", new String(value.getBytes("ISO-8859-1"), "UTF-8"));
             }

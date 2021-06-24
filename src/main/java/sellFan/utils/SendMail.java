@@ -40,7 +40,7 @@ public class SendMail {
     public static String formMailForgetPassword(HttpServletRequest req, Integer id, String code){
 
         return "<p>Xin chào, để lấy lại mật khẩu vui lòng </p>"
-                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth/changePassoword?id="+id+"&code="+code+"\">Nhấp Vào Đây để xác nhận</a></p>";
+                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth/changepassword?id="+id+"&code="+code+"\">Nhấp Vào Đây</a></p>";
     }
 
     public static String formMailRegister(HttpServletRequest req, Integer id, String code){

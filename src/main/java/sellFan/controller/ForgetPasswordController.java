@@ -24,7 +24,6 @@ public class ForgetPasswordController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         MessageUtils.setMessageToAttribute(req);
         RequestDispatcher rd = req.getRequestDispatcher("/views/auth/forgetPassword.jsp");
         rd.forward(req, resp);
@@ -38,14 +37,14 @@ public class ForgetPasswordController extends HttpServlet {
             try {
                 u.setCode(RandomStringUtils.randomAlphabetic(10));
                 userDAO.update(u);
-                SendMail.sendMailTo(email, "Xác Nhận Quên Mật Khẩu", SendMail.formMailRegister(req, u.getId(), u.getCode()));
+                SendMail.sendMailTo(email, "Xác Nhận Quên Mật Khẩu", SendMail.formMailForgetPassword(req, u.getId(), u.getCode()));
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
-            resp.sendRedirect(req.getContextPath() + "/auth/forgetpassword?message=success_sendMain_email");
+            resp.sendRedirect(req.getContextPath() + "/auth/forgetpassword?message=success_sendMain_email&alert=success");
             return;
         } else {
-            resp.sendRedirect(req.getContextPath() + "/auth/forgetpassword?message=notExists_email");
+            resp.sendRedirect(req.getContextPath() + "/auth/forgetpassword?message=notExists_email&alert=danger");
             return;
         }
     }

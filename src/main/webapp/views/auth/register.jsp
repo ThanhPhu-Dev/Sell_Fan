@@ -35,8 +35,8 @@
         </div>
     </div>
     <c:if test="${not empty message}">
-        <div class="alert alert-danger alert-message" role="alert">
-           ${message}
+        <div class="alert alert-${alert} alert-message" role="alert">
+                ${message}
         </div>
     </c:if>
     <input type="submit" class="btn" value="Đăng Ký">

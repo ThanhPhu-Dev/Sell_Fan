@@ -63,7 +63,7 @@ public class RegisterController extends HttpServlet {
         String pass = req.getParameter("password");
         try {
             if (userDAO.findByEmail(email) != null) {
-                resp.sendRedirect(req.getContextPath() + "/auth/register?message=exists_email");
+                resp.sendRedirect(req.getContextPath() + "/auth/register?message=exists_email&alert=danger");
                 return;
             }
             User usernew = new User();
@@ -75,7 +75,7 @@ public class RegisterController extends HttpServlet {
 
             SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
             System.out.println("thành công");
-            resp.sendRedirect(req.getContextPath() + "/auth");
+            resp.sendRedirect(req.getContextPath() + "/auth/register?message=success_sendMain_email&alert=success");
         } catch (MessagingException e) {
             e.printStackTrace();
         }
