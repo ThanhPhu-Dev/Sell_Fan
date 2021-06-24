@@ -17,6 +17,8 @@ public class CartProductMapper implements RowMappper<Cart>{
             cart.setQuantity(rs.getInt("quantity"));
 
             Product product = new Product();
+            product.setId(rs.getInt("productid"));
+            product.setTypeId(rs.getInt("typeid"));
             product.setName(rs.getString("name"));
             product.setPrice(rs.getInt("price"));
             product.setStock(rs.getInt("stock"));

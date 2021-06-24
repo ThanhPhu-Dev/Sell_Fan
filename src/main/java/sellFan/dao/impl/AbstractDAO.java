@@ -3,6 +3,7 @@ package sellFan.dao.impl;
 import sellFan.dao.iterface.GenericDAO;
 import sellFan.mapper.RowMappper;
 
+import java.math.BigInteger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +81,9 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
                 } else if (parameter instanceof Date) {
                     Date date = (Date)parameter;
                     statement.setDate(index, new java.sql.Date(date.getTime()));
-                }else if (parameter == null) {
+                } else if (parameter instanceof BigInteger) {
+                    statement.setLong(index, ((BigInteger) parameter).longValue());
+                } else if (parameter == null) {
 					statement.setNull(index, Types.NULL);
 				}
             }

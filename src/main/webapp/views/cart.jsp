@@ -89,30 +89,32 @@
                                 <p class="mb-0 text-dark fw-bold">Tổng tiền:</p>
                                 <p class="mb-0 fs-09 text-danger fw-bold">${provisionalPrice}</p>
                             </div>
-                            <form action="<c:url value="/"/>cart" method="POST" class="mt-2">
+                            <form id="checkout-form" action="<c:url value="/"/>checkout" method="POST" class="mt-2" novalidate>
                                 <div class="px-md-4 px-2">
                                     <p class="mb-0 text-dark text-uppercase fs-6 mt-2">
                                         thông tin khách hàng:
                                     </p>
-<%--                                    <div class="d-flex align-items-center mt-2">--%>
-<%--                                        <div class="form-check me-3">--%>
-<%--                                            <input type="radio" class="form-check-input" name="gender" id="male"--%>
-<%--                                                   checked>--%>
-<%--                                            <label for="male" class="form-check-label fs-09">Anh</label>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="form-check">--%>
-<%--                                            <input type="radio" class="form-check-input" name="gender" id="female">--%>
-<%--                                            <label for="female" class="form-check-label fs-09">Chị</label>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <div class="form-check me-3">
+                                            <input type="radio" class="form-check-input" name="gender" id="male"
+                                                   checked value="Anh">
+                                            <label for="male" class="form-check-label fs-09">Anh</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" name="gender" id="female" value="Chị">
+                                            <label for="female" class="form-check-label fs-09">Chị</label>
+                                        </div>
+                                    </div>
                                     <div class="row mt-2">
                                         <div class="col-12 col-md-6">
                                             <input type="text" name="fullname" class="form-control"
-                                                   placeholder="Họ và Tên">
+                                                   placeholder="Họ và Tên" value="${customerName}" required>
+                                            <div class="invalid-feedback">Vui lòng điền họ tên!</div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <input type="text" name="phone" class="form-control"
-                                                   placeholder="Số điện thoại">
+                                                   placeholder="Số điện thoại" required>
+                                            <div class="invalid-feedback">Vui lòng điền số điện thoại!</div>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -121,7 +123,8 @@
                                         </p>
                                         <div class="col-12 mt-2">
                                             <input type="text" name="address" class="form-control"
-                                                   placeholder="Địa chỉ">
+                                                   placeholder="Địa chỉ" required>
+                                            <div class="invalid-feedback">Vui lòng điền địa chỉ!</div>
                                         </div>
                                         <div class="col-12 mt-2">
                                             <input type="text" name="requirement" class="form-control"
@@ -146,5 +149,4 @@
         </div>
     </div>
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="<c:url value='/template/js/cart.js'/>"></script>
