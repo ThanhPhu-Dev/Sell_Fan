@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <title>Login</title>
-<form action="#">
+<form action="./register" method="post">
     <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
     <h2 class="title">Đăng Ký</h2>
     <div class="input-div one">
@@ -11,7 +11,9 @@
         </div>
         <div class="div">
             <h5>Email</h5>
-            <input type="email" class="input">
+            <input type="email" name="email"
+                   pattern="^[\w]+@gmail.com$"
+                   class="input" required>
         </div>
     </div>
     <div class="input-div one">
@@ -20,7 +22,7 @@
         </div>
         <div class="div">
             <h5>Họ Tên</h5>
-            <input type="text" class="input">
+            <input type="text" name="username" class="input" required>
         </div>
     </div>
     <div class="input-div pass">
@@ -29,9 +31,9 @@
         </div>
         <div class="div">
             <h5>Mật Khẩu</h5>
-            <input type="password" class="input">
+            <input type="password" pattern="^[\w]{8,}" title="ít nhất 8 ký tự" name="password" class="input" required>
         </div>
     </div>
-    <a href="./auth?action=login">Đã có tài khoản</a>
+    <a href="./auth">Đã có tài khoản</a>
     <input type="submit" class="btn" value="Đăng Ký">
 </form>

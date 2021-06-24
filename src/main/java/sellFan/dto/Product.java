@@ -16,5 +16,6 @@ public class Product {
     private Integer TypeId;
     private String Name;
     private Integer Price;
+    private Integer Stock;
     private String Image;
 }

@@ -14,7 +14,10 @@ import lombok.NoArgsConstructor;
  */
 @Data
 public class User {
+    private Integer Id;
     private String Email;
     private String HashedPw;
     private String FullName;
+    private String code;
+    private Boolean status;
 }
