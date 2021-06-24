@@ -7,7 +7,7 @@
     <div class="container">
         <div class="detail__header">
             <div class="detail__name">
-                <h4 style="font-size: 22px;">Quạt lửng Asia A16009-DV1 Xanh đen </h4>
+                <h4 style="font-size: 22px;">${product.getName()}</h4>
                 <div class="social">
 
                 </div>
@@ -68,10 +68,23 @@
                     <div class="infoprimary__content">
                         <div class="product-price infoprimary__content-items">
                             <span>Giá ở <span style="color: #009EE1;">tất cả các cửa hàng</span></span>
-                            <p>510.000₫ </p>
+                            <p>
+                                <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.getPrice()}" />
+                                ₫ 
+                            </p>
                         </div>
                         <div class="product-status infoprimary__content-items">
-                            <strong style="color: green;">CÒN HÀNG</strong>
+                            <strong style="color: green;">
+                                <c:set var = "stock" scope = "session" value = "${product.getStock()}"/>
+                                <c:choose>
+                                    <c:when test = "${stock < 1}">
+                                        HẾT HÀNG
+                                    </c:when>
+                                    <c:otherwise>
+                                        CÒN HÀNG
+                                    </c:otherwise>
+                                </c:choose>
+                            </strong>
                         </div>
                         <div class="prduct-address infoprimary__content-items" style="padding: 10px 0;">
                             <span style="color: #009EE1;">
@@ -81,7 +94,10 @@
                             để biết thời gian giao.
                         </div>
                         <div class="product-buy infoprimary__content-items">
-                            <button type="button" class="btn btn-buy">Mua hàng</button>
+                            <button type="button" class="btn btn-buy"
+                                    <c:if test = "${stock < 1}">disabled</c:if>>
+                                Mua hàng
+                            </button>
                         </div>
                         <div class="contact-store">
                             Gọi đặt mua 1800.1061 (7:30 - 22:00)
@@ -106,53 +122,53 @@
 
                     <!-- INFO TECHNICAL -->
                     <div class="infotechnical">
-                        <h3>Thông số kỹ thuật Quạt đứng Toshiba F-LSA10(W)VN</h3>
+                        <h3>Thông số kỹ thuật ${product.getName()}</h3>
                         <!-- TABLE -->
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td>Loại quạt:</td>
-                                    <td>Quạt đứng50W3 mức gió</td>
+                                    <td>${productDetail.getType()}</td>
                                 </tr>
                                 <tr>
                                     <td>Đường kính quạt:</td>
-                                    <td>5 cánh40 cm</td>
+                                    <td>${productDetail.getDiameter()}</td>
                                 </tr>
                                 <tr>
                                     <td>Chế độ gió:</td>
-                                    <td>Gió thường</td>
+                                    <td>${productDetail.getWindMode()}</td>
                                 </tr>
                                 <tr>
                                     <td>Bảng điều khiển:</td>
-                                    <td>Nút xoayNút nhấn</td>
+                                    <td>${productDetail.getDashBoard()}</td>
                                 </tr>
                                 <tr>
                                     <td>Loại motor:</td>
-                                    <td>Bạc thau</td>
+                                    <td>${productDetail.getMotorType()}</td>
                                 </tr>
                                 <tr>
                                     <td>Tiện ích:</td>
-                                    <td>Hẹn giờ tắt</td>
+                                    <td>${productDetail.getUtility()}</td>
                                 </tr>
                                 <tr>
                                     <td>Kích thước, trọng lượng:</td>
-                                    <td>Ngang 40 cm - Cao 13.5 cm - Sâu 45 cm - 8.3 Kg8.3 Kg</td>
+                                    <td>${productDetail.getSizeWight()}</td>
                                 </tr>
                                 <tr>
                                     <td>Thương hiệu của:</td>
-                                    <td>Nhật Bản</td>
+                                    <td>${productDetail.getBrandName()}</td>
                                 </tr>
                                 <tr>
                                     <td>Sản xuất tại:</td>
-                                    <td>Trung Quốc</td>
+                                    <td>${productDetail.getMadeIn()}</td>
                                 </tr>
                                 <tr>
                                     <td>Năm ra mắt:</td>
-                                    <td>2021</td>
+                                    <td>${productDetail.getDebutYear()}</td>
                                 </tr>
                                 <tr>
                                     <td>Hãng</td>
-                                    <td>Toshiba</td>
+                                    <td>${productDetail.getCompany()}</td>
                                 </tr>
                             </tbody>
                         </table>

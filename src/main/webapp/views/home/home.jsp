@@ -44,9 +44,9 @@
 
         <c:forEach var="pro" items="${products}">
             <li>
-                <a href="">
+                <a href="/SellFan/product?id=${pro.getId()}">
                     <div class="card product__item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/1992/219275/quat-lung-asia-a16019-xv0-thumb-ksp.jpg"
+                        <img src="${pro.getImage()}"
                              class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <span class="product-name">${pro.getName()}</span>
