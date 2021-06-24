@@ -30,7 +30,6 @@ public class RegisterController extends HttpServlet {
 //        resp.setCharacterEncoding("utf-8");
         ResourceBundle mybundle = ResourceBundle.getBundle("message");
         if(req.getParameter("message") != null){
-
             String value = mybundle.getString(req.getParameter("message"));
             req.setAttribute("message", new String (value.getBytes("ISO-8859-1"), "UTF-8"));
         }
