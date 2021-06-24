@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@include file="/common/taglib.jsp" %>
 <title>Trang chủ</title>
 
 <div class="container" style="margin-top: 30px;">
@@ -28,7 +27,11 @@
             <button class="btn btn-outline-primary" type="submit">Tìm</button>
         </form>
     </div>
-    
+
+    <h1>${pro.Id()}</h1>
+    <c:forEach var="pro" items="${products}">
+        <h1>${pro.Id()}</h1>
+    </c:forEach>
     <!--PRODUCTS-->
     <ul class="productlist">
         <li>
