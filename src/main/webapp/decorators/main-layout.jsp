@@ -26,6 +26,7 @@
     </head>
 
     <body >
+<%--    ${nameUserCurrent}--%>
         <!--<h1 class="test"> nghia</h1>-->
         <jsp:include page="/common/header.jsp" />
         <dec:body />
