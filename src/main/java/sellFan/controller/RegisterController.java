@@ -44,7 +44,6 @@ public class RegisterController extends HttpServlet {
 
             SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
             System.out.println("thành công");
-            String url = req.getContextPath();
             resp.sendRedirect(req.getContextPath()+"/auth");
         } catch (MessagingException e) {
             e.printStackTrace();

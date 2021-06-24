@@ -9,6 +9,7 @@ import java.util.Properties;
 public class SendMail {
 
     public static void sendMailTo(String email, String subject, String message) throws MessagingException {
+
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
