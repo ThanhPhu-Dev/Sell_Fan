@@ -4,13 +4,13 @@
 <header>
     <div class="header-top">
         <div class="container">
-            <img src="/template/image/headertop.png" alt="" >
+            <img src="<c:url value="/template/image/headertop.png"/>" alt="" >
         </div>
     </div>
     <div class="header-body">
         <div class="container d-flex justify-content-between">
             <div class="header__logo">
-                <img src="/template/image/logo.png" alt="" width="180px" height="40px">
+                <img src="<c:url value="/template/image/logo.png"/>" alt="" width="180px" height="40px">
             </div>
             <div class="d-flex align-items-center">
                 <div class="header__search">
