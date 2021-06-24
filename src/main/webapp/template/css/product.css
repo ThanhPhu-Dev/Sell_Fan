@@ -1,0 +1,124 @@
+/*CAROUSEL*/
+.swiper-container {
+  width: 100%;
+  height: 35%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+
+/* CATEGORY */
+.category ul {
+    list-style-type: none;
+    margin: 0;
+
+}
+
+.category ul li {
+    display: inline-block;
+    padding: 3px 12px;
+    margin: 0 3px;
+    transition: 0.5s color ease;
+}
+
+.category ul li:hover {
+    border-bottom: 3px solid #009EE1;
+}
+
+.category ul li a {
+    text-decoration: none;
+    color: #222;
+}
+
+.category-active {
+    color: #009EE1;
+    border-bottom: 3px solid #009EE1;
+}
+
+.category-active a {
+    color: #009EE1 !important;
+}
+
+/* DETAIL PRODUCT */
+.infoprimary__img img {
+    width: 100%;
+    height: auto;
+}
+
+.btn-buy {
+    background: #FB6E2E;
+    width: 100%;
+    border: none;
+    color: #fff;
+}
+.btn-buy:hover {
+    color: #fff;
+}
+.infoprimary__content {
+    padding: 0 10px;
+}
+
+.contact-store {
+    text-align: center;
+    font-size: 15px;
+}
+
+.product-price p {
+    color: #D0021C;
+    font-weight: 700;
+}
+
+.sale-box {
+    padding: 10px 15px;
+
+}
+
+.sale-box ion-icon {
+    font-size: 25px;
+    color: #d72222;
+}
+
+.sale-box ul {
+    list-style-type: none;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+/* GUARENTEE */
+.guarantee ul {
+    list-style-type: none;
+    padding: 30px;
+    display: grid;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guarantee ul li {
+    padding: 10px;
+    margin: 10px 10px;
+    /* border: 1px solid #bdbdbd; */
+    font-size: 15px;
+}
+
+.guarantee ul li ion-icon {
+    font-size: 25px;
+    margin-right: 10px;
+    color: #009EE1;
+}
+
+.infotechnical {
+    padding: 20px 10px 0;
+}
+
+.infotechnical h3 {
+    font-size: 23px;
+}
