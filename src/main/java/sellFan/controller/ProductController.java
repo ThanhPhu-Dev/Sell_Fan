@@ -11,20 +11,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sellFan.dao.iterface.*;
-import sellFan.dto.Product;
+import sellFan.dto.*;
 
 @WebServlet(urlPatterns = {"/product"})
 public class ProductController extends HttpServlet {
 
     private static final long serialVersionUID = -5866282446898633441L;
     @Inject
+    IProductDetailDAO _productDetailDAO;
+
+    @Inject
     IProductDAO _productDAO;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
-        List<Product> products = _productDAO.getAllProduct();
-        req.setAttribute("products", products);
-        
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //GET params
+        String productId = req.getParameter("id");
+
+        ProductDetail productDetail = _productDetailDAO.getProductDetailById(Integer.parseInt(productId));
+        Product product = _productDAO.getProductById(Integer.parseInt(productId));
+        req.setAttribute("productDetail", productDetail);
+        req.setAttribute("product", product);
+
         RequestDispatcher rd = req.getRequestDispatcher("/views/product/product.jsp");
         rd.forward(req, resp);
     }
