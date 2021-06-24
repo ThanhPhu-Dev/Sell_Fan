@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <title>Forget Password</title>
-<form action="./register" method="post">
+<form action="<c:url value="/"/>auth/forgetpassword" method="post">
     <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
     <h2 class="title">Quên mật khẩu</h2>
     <div class="input-div one">
