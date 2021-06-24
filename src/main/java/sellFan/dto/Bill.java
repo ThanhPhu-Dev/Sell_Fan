@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class Bill {
     private Integer Id;
-    private String User_email;
+    private Integer User_Id;
+    private String Full_Name;
+    private String Gender;
     private String Phone_number;
     private String Address;
+    private String Requirement;
     private BigInteger Total;
 }

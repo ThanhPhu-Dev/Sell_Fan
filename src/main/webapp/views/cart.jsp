@@ -94,17 +94,17 @@
                                     <p class="mb-0 text-dark text-uppercase fs-6 mt-2">
                                         thông tin khách hàng:
                                     </p>
-                                    <div class="d-flex align-items-center mt-2">
-                                        <div class="form-check me-3">
-                                            <input type="radio" class="form-check-input" name="gender" id="male"
-                                                   checked>
-                                            <label for="male" class="form-check-label fs-09">Anh</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" name="gender" id="female">
-                                            <label for="female" class="form-check-label fs-09">Chị</label>
-                                        </div>
-                                    </div>
+<%--                                    <div class="d-flex align-items-center mt-2">--%>
+<%--                                        <div class="form-check me-3">--%>
+<%--                                            <input type="radio" class="form-check-input" name="gender" id="male"--%>
+<%--                                                   checked>--%>
+<%--                                            <label for="male" class="form-check-label fs-09">Anh</label>--%>
+<%--                                        </div>--%>
+<%--                                        <div class="form-check">--%>
+<%--                                            <input type="radio" class="form-check-input" name="gender" id="female">--%>
+<%--                                            <label for="female" class="form-check-label fs-09">Chị</label>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
                                     <div class="row mt-2">
                                         <div class="col-12 col-md-6">
                                             <input type="text" name="fullname" class="form-control"
