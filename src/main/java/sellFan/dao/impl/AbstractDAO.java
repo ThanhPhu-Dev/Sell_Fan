@@ -13,7 +13,7 @@ import javax.annotation.ManagedBean;
 @ManagedBean
 public abstract class AbstractDAO<T> implements GenericDAO<T> {
 
-    ResourceBundle mybundle = ResourceBundle.getBundle("dbConnect");
+    ResourceBundle mybundle = ResourceBundle.getBundle("Connect");
 
     public Connection getConnection() {
         try {
