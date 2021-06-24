@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @WebServlet(urlPatterns = {"/auth/register"})
 public class RegisterController extends HttpServlet {
@@ -25,6 +26,13 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        req.setCharacterEncoding("utf-8");
+//        resp.setCharacterEncoding("utf-8");
+        ResourceBundle mybundle = ResourceBundle.getBundle("message");
+        if(req.getParameter("message") != null){
+            String value = mybundle.getString(req.getParameter("message"));
+            req.setAttribute("message", new String (value.getBytes("ISO-8859-1"), "UTF-8"));
+        }
         RequestDispatcher rd = req.getRequestDispatcher("/views/auth/register.jsp");
         rd.forward(req, resp);
     }
@@ -35,6 +43,10 @@ public class RegisterController extends HttpServlet {
         String name = req.getParameter("username");
         String pass = req.getParameter("password");
         try {
+            if(userDAO.findByEmail(email) != null){
+                resp.sendRedirect(req.getContextPath()+"/auth/register?message=exists_email");
+                return;
+            }
             User usernew = new User();
             usernew.setEmail(email);
             usernew.setHashedPw(BCrypt.hashpw(pass, BCrypt.gensalt(12)));
