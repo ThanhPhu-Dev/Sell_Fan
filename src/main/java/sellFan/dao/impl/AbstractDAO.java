@@ -6,6 +6,7 @@ import sellFan.mapper.RowMappper;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 import javax.annotation.ManagedBean;
@@ -18,10 +19,12 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://" + mybundle.getString("IP") + ":" + mybundle.getString("Port") + "/" + mybundle.getString("Database");
-            String user =  mybundle.getString("User");
-            String pass = mybundle.getString("Password");
-            return DriverManager.getConnection(url, user, pass);
+        String url = "jdbc:mysql://" + mybundle.getString("IP") + ":" + mybundle.getString("Port") + "/" + mybundle.getString("Database");
+            Properties connectionProps = new Properties();
+            connectionProps.put("user", mybundle.getString("User"));
+            connectionProps.put("password", mybundle.getString("Password"));
+            connectionProps.put("characterEncoding", "UTF-8");
+            return DriverManager.getConnection(url, connectionProps);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return null;

@@ -11,8 +11,7 @@ import lombok.Data;
  * @author NghiaDX
  */
 @Data
-@Builder
 public class ProductImage {
     private Integer ProductId;
-    private String Name;
+    private String Image;
 }

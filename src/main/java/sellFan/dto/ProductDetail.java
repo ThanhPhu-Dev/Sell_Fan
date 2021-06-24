@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sellFan.dto;
+import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 /**
@@ -25,4 +26,6 @@ public class ProductDetail {
     private String DebutYear;
     private String Company;
     private String Image;
+    
+    private List<ProductImage> productImages;
 }
