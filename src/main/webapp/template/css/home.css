@@ -1,4 +1,4 @@
-.card:hover {
+.product__item:hover {
   z-index: 10;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -71,6 +71,12 @@
   padding: 0;
 }
 
+.header__cart{
+    padding: 0 20px;
+}
+.header__cart ion-icon{
+    font-size: 22px
+}
 .btn-outline-fff {
   color: #fff;
   border-color: #fff;
