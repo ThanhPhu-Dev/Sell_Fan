@@ -1,5 +1,6 @@
 package sellFan.filter;
 
+import sellFan.dao.iterface.ICartDAO;
 import sellFan.dao.iterface.IUserDAO;
 import sellFan.dto.User;
 
@@ -12,7 +13,8 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/*"})
 public class UserCurrentFilter implements Filter {
-
+    @Inject
+    ICartDAO _cartDAO;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -27,7 +29,10 @@ public class UserCurrentFilter implements Filter {
         HttpSession session = req.getSession();
         if(session.getAttribute("usercurrent") != null){
             User u = (User) session.getAttribute("usercurrent");
+            int cartCount = _cartDAO.count(u.getId());
+
             req.setAttribute("nameUserCurrent", u.getFullName());
+            req.setAttribute("cartCount", cartCount);
         }
 
     }

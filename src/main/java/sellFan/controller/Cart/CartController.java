@@ -35,6 +35,10 @@ public class CartController extends HttpServlet {
         //Get user current
         HttpSession session = req.getSession();
         Object user = session.getAttribute("usercurrent");
+        if(user == null) {
+            res.sendRedirect(req.getContextPath() + "/auth");
+            return;
+        }
         User userCurrent = User.class.cast(user);
 
 
