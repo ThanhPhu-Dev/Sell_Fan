@@ -21,18 +21,11 @@
                         <!-- <img src="./img/fan1.jpg" alt=""> -->
                         <div class="swiper-container mySwiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="<c:url value="/template/image/products/fan1.jpg"/>" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="<c:url value="/template/image/products/fan1.jpg"/>" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="<c:url value="/template/image/products/fan1.jpg"/>" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="<c:url value="/template/image/products/fan1.jpg"/>" />
-                                </div>
+                                <c:forEach var="img" items="${productImages}">
+                                    <div class="swiper-slide">
+                                        <img src="${img.getImage()}" />
+                                    </div>
+                                </c:forEach>
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
@@ -96,33 +89,33 @@
                         <div class="product-buy infoprimary__content-items">
                             <button type="button" class="btn btn-buy"
                                     <c:if test = "${stock < 1}">disabled</c:if>>
-                                Mua hàng
-                            </button>
-                        </div>
-                        <div class="contact-store">
-                            Gọi đặt mua 1800.1061 (7:30 - 22:00)
+                                        Mua hàng
+                                    </button>
+                            </div>
+                            <div class="contact-store">
+                                Gọi đặt mua 1800.1061 (7:30 - 22:00)
+                            </div>
+
+                            <!-- CARD KHUYẾN MÃI -->
+                            <div class="card" style="margin-top: 20px;">
+                                <div class="card-header">
+                                    1 ưu đãi thêm
+                                </div>
+                                <div class="card-body sale-box d-flex fle-column">
+                                    <ion-icon name="gift-outline"></ion-icon>
+                                    <ul>
+                                        <li>Tặng cho khách lần đầu mua hàng online tại web BachhoaXANH.com</li>
+                                        <li>Mã giảm 20% tối đa 100.000đ</li>
+                                        <li>5 lần FREEship</li>
+                                        <li>Áp dụng tại Tp.HCM và 1 số khu vực, 1 SĐT nhận 1 lần (Xem chi tiết)</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- CARD KHUYẾN MÃI -->
-                        <div class="card" style="margin-top: 20px;">
-                            <div class="card-header">
-                                1 ưu đãi thêm
-                            </div>
-                            <div class="card-body sale-box d-flex fle-column">
-                                <ion-icon name="gift-outline"></ion-icon>
-                                <ul>
-                                    <li>Tặng cho khách lần đầu mua hàng online tại web BachhoaXANH.com</li>
-                                    <li>Mã giảm 20% tối đa 100.000đ</li>
-                                    <li>5 lần FREEship</li>
-                                    <li>Áp dụng tại Tp.HCM và 1 số khu vực, 1 SĐT nhận 1 lần (Xem chi tiết)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- INFO TECHNICAL -->
-                    <div class="infotechnical">
-                        <h3>Thông số kỹ thuật ${product.getName()}</h3>
+                        <!-- INFO TECHNICAL -->
+                        <div class="infotechnical">
+                            <h3>Thông số kỹ thuật ${product.getName()}</h3>
                         <!-- TABLE -->
                         <table class="table table-striped">
                             <tbody>

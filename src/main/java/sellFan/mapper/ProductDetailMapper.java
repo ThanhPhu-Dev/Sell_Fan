@@ -5,13 +5,10 @@ import sellFan.dto.*;
 import java.sql.ResultSet;
 import java.util.List;
 import javax.inject.Inject;
+import sellFan.dao.impl.AbstractDAO;
 import sellFan.dao.iterface.*;
 
 public class ProductDetailMapper implements RowMappper<ProductDetail> {
-
-    private static final long serialVersionUID = -5866282446898633441L;
-    @Inject
-    IproductImageDAO _productImageDAO;
 
     @Override
     public ProductDetail mapRow(ResultSet rs) {
@@ -30,8 +27,7 @@ public class ProductDetailMapper implements RowMappper<ProductDetail> {
             p.setDebutYear(rs.getString("debut_year"));
             p.setCompany(rs.getString("company"));
             p.setImage(rs.getString("image"));
-            List<ProductImage> t = _productImageDAO.getAllByProductId(rs.getInt("productid"));
-//            p.setProductImages();
+            
             return p;
         } catch (Exception e) {
             return null;

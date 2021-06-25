@@ -23,6 +23,9 @@ public class ProductController extends HttpServlet {
     @Inject
     IProductDAO _productDAO;
 
+    @Inject
+    IproductImageDAO _productImageDAO;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //GET params
@@ -30,8 +33,10 @@ public class ProductController extends HttpServlet {
 
         ProductDetail productDetail = _productDetailDAO.getProductDetailById(Integer.parseInt(productId));
         Product product = _productDAO.getProductById(Integer.parseInt(productId));
+        List<ProductImage> productImages = _productImageDAO.getAllByProductId(Integer.parseInt(productId));
         req.setAttribute("productDetail", productDetail);
         req.setAttribute("product", product);
+        req.setAttribute("productImages", productImages);
 
         RequestDispatcher rd = req.getRequestDispatcher("/views/product/product.jsp");
         rd.forward(req, resp);
