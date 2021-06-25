@@ -1,13 +1,14 @@
 package sellFan.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class Cart {
     private Integer Id;
-    private String User_Email;
+    private Integer User_Id;
     private Integer ProductId;
     private Integer Quantity;
+
+    private Product CartProduct;
+
 }

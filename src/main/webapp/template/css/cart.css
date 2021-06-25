@@ -1,0 +1,39 @@
+.cart-item__img {
+    width: 75px;
+    height: auto;
+}
+
+.cart-item__remove {
+    font-size: 0.85rem;
+}
+
+.cart-item__name {
+    font-size: 0.9rem;
+}
+
+.cart-item__quantity > * {
+    width: 33px;
+    height: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.cart-item__quantity .quantity {
+    line-height: 1.8;
+}
+
+.fs-09 {
+    font-size: 0.9rem;
+}
+
+.btn-quantity.disabled {
+    pointer-events: none;
+    color: #999999;
+    cursor: default;
+}
+
+@media (max-width: 768px) {
+    .cart-item__img {
+        width: 53px;
+    }
+}
