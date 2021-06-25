@@ -1,12 +1,10 @@
-package sellFan.controller.Cart;
+package sellFan.controller;
 
 import sellFan.dao.iterface.IBillDAO;
 import sellFan.dao.iterface.IBillDetailDAO;
-import sellFan.dao.iterface.ICartDAO;
 import sellFan.dao.iterface.IUserDAO;
 import sellFan.dto.Bill;
 import sellFan.dto.BillDetail;
-import sellFan.dto.Cart;
 import sellFan.dto.User;
 
 import javax.inject.Inject;
@@ -18,17 +16,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/cart"})
-public class CartController extends HttpServlet {
-    @Inject
-    ICartDAO _cartDAO;
-
+@WebServlet(urlPatterns = {"/purchase/history"})
+public class PurchaseHistoryController extends HttpServlet {
     @Inject
     IUserDAO _userDAO;
+
+    @Inject
+    IBillDAO _billDAO;
+
+    @Inject
+    IBillDetailDAO _billDetailDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -37,24 +37,20 @@ public class CartController extends HttpServlet {
         Object user = session.getAttribute("usercurrent");
         User userCurrent = User.class.cast(user);
 
-
-        List<Cart> list = _cartDAO.findByUserId(userCurrent.getId());
-        long provisionalPrice = getProvisionalPrice(list);
-        req.setAttribute("carts", list);
-        req.setAttribute("provisionalPrice", provisionalPrice);
-        req.setAttribute("total", provisionalPrice);
+        List<Bill> billList =  _billDAO.findBillsByUserId(userCurrent.getId());
+        List<BillDetail> list = getDetails(billList);
+        req.setAttribute("list", list);
         req.setAttribute("customerName", userCurrent.getFullName());
-        req.setCharacterEncoding("UTF-8");
-        RequestDispatcher rd = req.getRequestDispatcher("/views/cart.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/views/purchaseHistory.jsp");
         rd.forward(req, res);
     }
 
-
-    private long getProvisionalPrice(List<Cart> carts) {
-        long result = 0;
-        for (Cart cart : carts) {
-            result += cart.getCartProduct().getPrice() * cart.getQuantity();
+    private List<BillDetail> getDetails(List<Bill> billList) {
+        List<BillDetail> list = new ArrayList<>();
+        for (Bill bill : billList) {
+            List<BillDetail> details = _billDetailDAO.findByBillId(bill.getId());
+            list.addAll(details);
         }
-        return result;
+        return list;
     }
 }

@@ -6,6 +6,7 @@ import sellFan.mapper.BillMappper;
 
 import javax.annotation.ManagedBean;
 import java.math.BigInteger;
+import java.util.List;
 
 @ManagedBean
 public class BillDAO extends AbstractDAO<Bill> implements IBillDAO {
@@ -21,5 +22,12 @@ public class BillDAO extends AbstractDAO<Bill> implements IBillDAO {
     public void updateTotal(int billId, int total) {
         String sql = "UPDATE BILL SET TOTAL = ? WHERE ID = ?";
         Update(sql, total, billId);
+    }
+
+    @Override
+    public List<Bill> findBillsByUserId(int userId) {
+        String sql = "SELECT * FROM BILL WHERE USER_ID = ? ORDER BY DATE_CREATED DESC";
+        List<Bill> list = query(sql, new BillMappper(), userId);
+        return list;
     }
 }

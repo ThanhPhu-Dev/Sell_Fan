@@ -1,13 +1,13 @@
 package sellFan.mapper;
 
+import sellFan.dto.Bill;
 import sellFan.dto.BillDetail;
-import sellFan.dto.Cart;
-import sellFan.dto.User;
+import sellFan.dto.Product;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BillDetailMappper implements RowMappper<BillDetail>{
+public class BillDetailProductMapper implements RowMappper<BillDetail>{
     @Override
     public BillDetail mapRow(ResultSet rs) {
         try {
@@ -19,6 +19,15 @@ public class BillDetailMappper implements RowMappper<BillDetail>{
             detail.setTotal(rs.getInt("total"));
             detail.setDate_Created(rs.getDate("date_created"));
 
+            Product product = new Product();
+            product.setId(rs.getInt("productid"));
+            product.setTypeId(rs.getInt("typeid"));
+            product.setName(rs.getString("name"));
+            product.setPrice(rs.getInt("price"));
+            product.setStock(rs.getInt("stock"));
+            product.setImage(rs.getString("image"));
+
+            detail.setBillDetailProduct(product);
             return detail;
         } catch (SQLException ex) {
             return null;
