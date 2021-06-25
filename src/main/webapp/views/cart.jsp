@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="/common/taglib.jsp" %>
+
 <title>Giỏ hàng</title>
 <main class="main bg-light">
     <div class="container">
@@ -60,7 +61,9 @@
                                             <strong class="fs-09">${cart.getCartProduct().getName()}</strong>
                                         </div>
                                         <div class="cart-item__right text-end">
-                                            <p class="text-dark fs-09">${cart.getCartProduct().getPrice()}</p>
+                                            <p class="text-dark fs-09">
+                                                <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${cart.getCartProduct().getPrice()}" /> đ
+                                            </p>
                                                 <%--QUANTITY--%>
                                             <div class="d-flex align-items-center w-100 bg-white cart-item__quantity">
                                                 <a href="<c:url value="/"/>cart/reduce?id=${cart.getId()}"
@@ -83,11 +86,15 @@
                             </ul>
                             <div class="d-flex align-items-center justify-content-between mb-2 px-md-4 px-2">
                                 <p class="mb-0 text-dark fs-09">Tạm tính (${carts.size()} sản phẩm):</p>
-                                <p class="mb-0 fs-09 text-dark">${provisionalPrice}</p>
+                                <p class="mb-0 fs-09 text-dark">
+                                    <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${provisionalPrice}" /> đ
+                                </p>
                             </div>
                             <div class="d-flex align-items-center justify-content-between border-bottom pb-3 px-md-4 px-2">
                                 <p class="mb-0 text-dark fw-bold">Tổng tiền:</p>
-                                <p class="mb-0 fs-09 text-danger fw-bold">${provisionalPrice}</p>
+                                <p class="mb-0 fs-09 text-danger fw-bold">
+                                    <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${provisionalPrice}" /> đ
+                                </p>
                             </div>
                             <form id="checkout-form" action="<c:url value="/"/>checkout" method="POST" class="mt-2" novalidate>
                                 <div class="px-md-4 px-2">
@@ -135,7 +142,9 @@
                                 <div class="border-bottom mt-3"></div>
                                 <div class="px-md-4 px-2 mt-3 d-flex align-items-center justify-content-between">
                                     <p class="fs-09 fw-bold text-dark">Tổng tiền:</p>
-                                    <p class="fs-09 fw-bold text-danger">${provisionalPrice}</p>
+                                    <p class="fs-09 fw-bold text-danger">
+                                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${provisionalPrice}" /> đ
+                                    </p>
                                 </div>
                                 <div class="px-md-4 px-2">
                                     <button type="submit" class="btn btn-primary text-uppercase w-100">Đặt hàng</button>

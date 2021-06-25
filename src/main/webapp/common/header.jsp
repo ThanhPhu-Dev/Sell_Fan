@@ -14,7 +14,7 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="mx-2">
-                    <a href="/purchase/history" class="text-white text-decoration-none">
+                    <a href="<c:url value="/"/>purchase/history" class="text-white text-decoration-none">
                         <span>Lịch sử mua hàng</span>
                     </a>
                 </div>
