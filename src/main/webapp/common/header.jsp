@@ -40,7 +40,7 @@
                         <ion-icon name="cart-outline"></ion-icon>
                         <span class="ms-1">Giỏ hàng</span>
                         <c:if test="${not empty cartCount}">
-                            <c:if test="${cartCount == 0}">
+                            <c:if test="${cartCount > 0}">
                                 <span class="cart-count">${cartCount}</span>
                             </c:if>
                         </c:if>
