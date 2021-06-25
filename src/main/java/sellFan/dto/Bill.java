@@ -13,5 +13,5 @@ public class Bill {
     private String Phone_number;
     private String Address;
     private String Requirement;
-    private BigInteger Total;
+    private Integer Total;
 }

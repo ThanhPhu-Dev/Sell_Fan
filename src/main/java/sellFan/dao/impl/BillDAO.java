@@ -18,7 +18,7 @@ public class BillDAO extends AbstractDAO<Bill> implements IBillDAO {
     }
 
     @Override
-    public void updateTotal(int billId, BigInteger total) {
+    public void updateTotal(int billId, int total) {
         String sql = "UPDATE BILL SET TOTAL = ? WHERE ID = ?";
         Update(sql, total, billId);
     }

@@ -53,7 +53,7 @@ public class CheckoutController extends HttpServlet {
 
         int billId = _billDAO.createBill(bill);
         List<BillDetail> details = createBillDetails(billId, carts);
-        BigInteger total = totalOfBill(details);
+        int total = totalOfBill(details);
         _billDAO.updateTotal(billId, total);
 
         res.sendRedirect(req.getContextPath() + "/home");
@@ -69,10 +69,10 @@ public class CheckoutController extends HttpServlet {
         return list;
     }
 
-    private BigInteger totalOfBill(List<BillDetail> details) {
-        BigInteger total = BigInteger.valueOf(0);
+    private int totalOfBill(List<BillDetail> details) {
+        int total = 0;
         for (BillDetail detail : details) {
-            total.add(BigInteger.valueOf(detail.getTotal()));
+            total += detail.getTotal();
         }
         return total;
     }
