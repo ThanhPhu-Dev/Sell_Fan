@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="tachnical-img">
-                        <img src="<c:url value="/template/image/products/technical1.jpg" />" alt="" width="100%">
+                        <img src="${productDetail.getImage()}" alt="" >
                     </div>
                 </div>
                 <!-- LEFT -->
