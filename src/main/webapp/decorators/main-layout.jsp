@@ -18,7 +18,8 @@
         <!--Swiper-->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="stylesheet" href="./swiper.css">
-
+        <link rel = "icon" href="<c:url value="/template/image/title.png"/>" type="image/x-icon">
+        
         <title>
             <dec:title />
         </title>
@@ -27,7 +28,7 @@
     </head>
 
     <body >
-<%--    ${nameUserCurrent}--%>
+        <%--    ${nameUserCurrent}--%>
         <!--<h1 class="test"> nghia</h1>-->
         <jsp:include page="/common/header.jsp" />
         <dec:body />
