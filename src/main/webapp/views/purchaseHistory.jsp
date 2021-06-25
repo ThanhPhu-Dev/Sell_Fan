@@ -26,7 +26,7 @@
             <div class="col-12 col-lg-3">
                 <ul class="ps-0 list-unstyled mt-3">
                     <li class="menu-item active text-dark d-block p-2">
-                        <a href="" class="text-decoration-none fs-6">
+                        <a href="<c:url value="/"/>purchase/history" class="text-decoration-none fs-6">
                             Danh sách đơn hàng đã mua
                         </a>
                     </li>
