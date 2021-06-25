@@ -55,6 +55,7 @@ public class CheckoutController extends HttpServlet {
         List<BillDetail> details = createBillDetails(billId, carts);
         int total = totalOfBill(details);
         _billDAO.updateTotal(billId, total);
+        _cartDAO.clearCart(userId);
 
         res.sendRedirect(req.getContextPath() + "/home");
     }

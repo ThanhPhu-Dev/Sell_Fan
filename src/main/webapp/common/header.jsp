@@ -14,12 +14,12 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="mx-2">
-                    <a href="/purchase/history" class="text-white text-decoration-none">
+                    <a href="<c:url value="/"/>purchase/history" class="text-white text-decoration-none">
                         <span>Lịch sử mua hàng</span>
                     </a>
                 </div>
                 <div class="header__cart">
-                    <a href="/cart" class="d-block text-decoration-none">
+                    <a href="<c:url value="/"/>cart" class="d-block text-decoration-none">
                         <button type="button" class="btn btn-outline-primary btn-outline-fff d-flex align-items-center">
                             <ion-icon name="cart-outline"></ion-icon>
                             <span class="ms-1">Giỏ hàng</span>

@@ -37,4 +37,10 @@ public class CartDAO  extends AbstractDAO<Cart> implements ICartDAO {
         String sql = "DELETE FROM CART WHERE ID = ?";
         Update(sql, cartId);
     }
+
+    @Override
+    public void clearCart(int userId) {
+        String sql = "DELETE FROM CART WHERE USER_ID = ?";
+        Update(sql, userId);
+    }
 }
