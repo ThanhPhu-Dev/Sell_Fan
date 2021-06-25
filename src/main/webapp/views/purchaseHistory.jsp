@@ -52,7 +52,7 @@
                         </p>
                         <div class="border rounded bg-white cart-wrapper">
                             <c:forEach items="${list}" var="item">
-                                <a href="" class="card m-2 border-0 border-bottom rounded-0 p-3 text-decoration-none ">
+                                <a href="<c:url value="/"/>product?id=${item.getBillDetailProduct().getId()}" class="card m-2 border-0 border-bottom rounded-0 p-3 text-decoration-none ">
                                     <div class="row g-0">
                                         <div class="col-md-3">
                                             <img src="${item.getBillDetailProduct().getImage()}" class="img-fluid rounded-start" alt="...">
