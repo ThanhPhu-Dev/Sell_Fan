@@ -26,6 +26,4 @@ public class ProductDetail {
     private String DebutYear;
     private String Company;
     private String Image;
-    
-    private List<ProductImage> productImages;
 }
