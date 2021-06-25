@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
-
+<style>
+    .cart-count {
+        position: absolute;
+        top: -6px;
+        left: 13px;
+        background: #f00;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 10px;
+        padding: 3px;
+        line-height: 10px;
+        color: #fff;
+    }
+</style>
 <header>
     <div class="header-top">
         <div class="container">
@@ -10,7 +23,9 @@
     <div class="header-body">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="header__logo">
-                <img src="<c:url value="/template/image/logo.png"/>" alt="" width="180px" height="40px">
+                <a href="<c:url value="/"/>" class="d-block">
+                    <img src="<c:url value="/template/image/logo.png"/>" alt="" width="180px" height="40px">
+                </a>
             </div>
             <div class="d-flex align-items-center">
                 <div class="mx-2">
@@ -19,9 +34,14 @@
                     </a>
                 </div>
                 <div class="header__cart" style="padding: 0 20px">
-                    <a href="<c:url value="/cart" />" class="d-block text-decoration-none d-flex align-items-center text-white">
+                    <a href="<c:url value="/cart" />" class="d-block position-relative text-decoration-none d-flex align-items-center text-white">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span class="ms-1">Giỏ hàng</span>
+                        <c:if test="${not empty cartCount}">
+                            <c:if test="${cartCount == 0}">
+                                <span class="cart-count">${cartCount}</span>
+                            </c:if>
+                        </c:if>
                     </a>
                 </div>
                 <!--USER NAME-->
@@ -53,7 +73,6 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-
         </div>
     </div>
 </header>

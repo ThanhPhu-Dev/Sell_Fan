@@ -12,4 +12,5 @@ public interface ICartDAO extends GenericDAO<Cart>{
     public void addCart(int productId, int userId);
     public Cart findByProductId(int productId);
     public void clearCart(int userId);
+    public int count(int userId);
 }
