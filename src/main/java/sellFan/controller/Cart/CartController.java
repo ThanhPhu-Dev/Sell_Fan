@@ -32,16 +32,18 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Object user = session.getAttribute("usercurrent");
-        int userId = 1;
-        User user = _userDAO.findById(userId);
-        List<Cart> list = _cartDAO.findByUserId(userId);
+        //Get user current
+        HttpSession session = req.getSession();
+        Object user = session.getAttribute("usercurrent");
+        User userCurrent = User.class.cast(user);
+
+
+        List<Cart> list = _cartDAO.findByUserId(userCurrent.getId());
         long provisionalPrice = getProvisionalPrice(list);
         req.setAttribute("carts", list);
         req.setAttribute("provisionalPrice", provisionalPrice);
         req.setAttribute("total", provisionalPrice);
-        req.setAttribute("customerName", user.getFullName());
+        req.setAttribute("customerName", userCurrent.getFullName());
         req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("/views/cart.jsp");
         rd.forward(req, res);

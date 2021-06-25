@@ -18,10 +18,7 @@ public class ReduceQuantityController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Object user = session.getAttribute("usercurrent");
         try {
-            int userId = 1;
             int cartId = Integer.parseInt(req.getParameter("id"));
             Cart cart = _cartDAO.findByCartId(cartId);
             if(cart != null) {

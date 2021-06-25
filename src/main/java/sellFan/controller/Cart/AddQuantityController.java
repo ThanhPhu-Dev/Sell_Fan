@@ -2,6 +2,7 @@ package sellFan.controller.Cart;
 
 import sellFan.dao.iterface.ICartDAO;
 import sellFan.dto.Cart;
+import sellFan.dto.User;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -21,10 +22,7 @@ public class AddQuantityController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Object user = session.getAttribute("usercurrent");
         try {
-            int userId = 1;
             int cartId = Integer.parseInt(req.getParameter("id"));
             Cart cart = _cartDAO.findByCartId(cartId);
             if(cart != null) {

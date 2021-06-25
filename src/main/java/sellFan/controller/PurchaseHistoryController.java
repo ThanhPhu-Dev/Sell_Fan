@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +32,15 @@ public class PurchaseHistoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        int userId = 1;
-        User user = _userDAO.findById(userId);
-        List<Bill> billList =  _billDAO.findBillsByUserId(userId);
+        //Get user current
+        HttpSession session = req.getSession();
+        Object user = session.getAttribute("usercurrent");
+        User userCurrent = User.class.cast(user);
+
+        List<Bill> billList =  _billDAO.findBillsByUserId(userCurrent.getId());
         List<BillDetail> list = getDetails(billList);
         req.setAttribute("list", list);
-        req.setAttribute("customerName", user.getFullName());
+        req.setAttribute("customerName", userCurrent.getFullName());
         RequestDispatcher rd = req.getRequestDispatcher("/views/purchaseHistory.jsp");
         rd.forward(req, res);
     }
