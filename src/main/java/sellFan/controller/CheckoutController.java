@@ -3,10 +3,8 @@ package sellFan.controller;
 import sellFan.dao.iterface.IBillDAO;
 import sellFan.dao.iterface.IBillDetailDAO;
 import sellFan.dao.iterface.ICartDAO;
-import sellFan.dto.Bill;
-import sellFan.dto.BillDetail;
-import sellFan.dto.Cart;
-import sellFan.dto.User;
+import sellFan.dao.iterface.IProductDAO;
+import sellFan.dto.*;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -31,6 +29,9 @@ public class CheckoutController extends HttpServlet {
 
     @Inject
     IBillDetailDAO _billDetailDAO;
+
+    @Inject
+    IProductDAO _productDAO;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -70,8 +71,10 @@ public class CheckoutController extends HttpServlet {
     private List<BillDetail> createBillDetails(int billId, List<Cart> carts) {
         List<BillDetail> list = new ArrayList<>();
         for (Cart cart : carts) {
-            BigInteger total = BigInteger.valueOf(cart.getQuantity() * cart.getCartProduct().getPrice());
+            int total = cart.getQuantity() * cart.getCartProduct().getPrice();
             BillDetail detail = _billDetailDAO.create(billId, cart, total);
+            Product product = cart.getCartProduct();
+            _productDAO.updateStock(product.getId(), product.getStock() - cart.getQuantity());
             list.add(detail);
         }
         return list;

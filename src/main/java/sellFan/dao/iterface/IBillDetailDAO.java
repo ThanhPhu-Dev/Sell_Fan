@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IBillDetailDAO extends GenericDAO<BillDetail>{
     public BillDetail findById(int id);
-    public BillDetail create(int billId, Cart cart, BigInteger total);
+    public BillDetail create(int billId, Cart cart, int total);
     public List<BillDetail> findByBillId(int billId);
 }

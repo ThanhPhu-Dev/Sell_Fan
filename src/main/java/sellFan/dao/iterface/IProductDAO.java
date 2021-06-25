@@ -9,4 +9,6 @@ public interface IProductDAO extends GenericDAO<Product>{
     public List<Product> getAllProductByCat(String cat);
     public List<Product> getAllProductByName(String name);
     public List<Product> getAllProductByCatAndName(String cat, String name);
+    public void updateStock(int id, int stock);
+
 }

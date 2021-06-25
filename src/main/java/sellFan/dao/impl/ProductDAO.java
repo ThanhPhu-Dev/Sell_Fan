@@ -48,4 +48,10 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         List<Product> products = query(query, new ProductMapper(), id);
         return products.get(0);
     }
+
+    @Override
+    public void updateStock(int id, int stock) {
+        String sql = "UPDATE PRODUCT SET STOCK = ? WHERE ID = ?";
+        Update(sql, stock, id);
+    }
 }
