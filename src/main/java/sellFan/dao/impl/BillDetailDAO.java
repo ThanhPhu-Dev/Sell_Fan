@@ -4,6 +4,7 @@ import sellFan.dao.iterface.IBillDetailDAO;
 import sellFan.dto.BillDetail;
 import sellFan.dto.Cart;
 import sellFan.mapper.BillDetailMappper;
+import sellFan.mapper.BillDetailProductMapper;
 
 import javax.annotation.ManagedBean;
 import java.math.BigInteger;
@@ -24,5 +25,13 @@ public class BillDetailDAO extends AbstractDAO<BillDetail> implements IBillDetai
         String sql = "INSERT INTO BILL_DETAIL(BILLID, PRODUCTID, QUANTITY, TOTAL) VALUES(?, ?, ?, ?)";
         Long id = Insert(sql, billId, cart.getProductId(), cart.getQuantity(), total);
         return findById(id.intValue());
+    }
+
+    @Override
+    public List<BillDetail> findByBillId(int billId) {
+        String sql = "SELECT * FROM BILL_DETAIL as bd JOIN PRODUCT as p WHERE bd.PRODUCTID = p.ID " +
+                "AND BILLID = ?";
+        List<BillDetail> list = query(sql, new BillDetailProductMapper(), billId);
+        return list;
     }
 }

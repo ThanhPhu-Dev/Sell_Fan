@@ -6,6 +6,9 @@
 package sellFan.dto;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.Date;
+
 /**
  *
  * @author NghiaDX
@@ -17,4 +20,7 @@ public class BillDetail {
     private Integer ProductId;
     private Integer Quantity;
     private Integer Total;
+    private Date Date_Created;
+
+    private Product BillDetailProduct;
 }
