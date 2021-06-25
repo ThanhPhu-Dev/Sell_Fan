@@ -35,6 +35,10 @@ public class PurchaseHistoryController extends HttpServlet {
         //Get user current
         HttpSession session = req.getSession();
         Object user = session.getAttribute("usercurrent");
+        if(user == null) {
+            res.sendRedirect(req.getContextPath() + "/auth");
+            return;
+        }
         User userCurrent = User.class.cast(user);
 
         List<Bill> billList =  _billDAO.findBillsByUserId(userCurrent.getId());
