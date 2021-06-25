@@ -71,6 +71,12 @@
   padding: 0;
 }
 
+.header__cart{
+    padding: 0 20px;
+}
+.header__cart ion-icon{
+    font-size: 22px
+}
 .btn-outline-fff {
   color: #fff;
   border-color: #fff;

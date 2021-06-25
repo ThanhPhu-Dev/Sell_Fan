@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="header-body">
-        <div class="container d-flex justify-content-between">
+        <div class="container d-flex justify-content-between align-items-center">
             <div class="header__logo">
                 <img src="<c:url value="/template/image/logo.png"/>" alt="" width="180px" height="40px">
             </div>
@@ -18,27 +18,26 @@
                         <span>Lịch sử mua hàng</span>
                     </a>
                 </div>
-                <div class="header__cart">
-                    <a href="/cart" class="d-block text-decoration-none">
-                        <button type="button" class="btn btn-outline-primary btn-outline-fff d-flex align-items-center">
-                            <ion-icon name="cart-outline"></ion-icon>
-                            <span class="ms-1">Giỏ hàng</span>
-                        </button>
+                <div class="header__cart" style="padding: 0 20px">
+                    <a href="/SellFan/cart" class="d-block text-decoration-none d-flex align-items-center text-white">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="ms-1">Giỏ hàng</span>
                     </a>
                 </div>
                 <!--USER NAME-->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <nav class="navbar navbar-expand-lg">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                       style="padding: 0;">
-                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="">Đăng xuất</a></li>
-                    </ul>
-                </nav>
+                <c:if test="${not empty nameUserCurrent}">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarScrollingDropdown" 
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;">
+                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                 width="30" height="30" class="rounded-circle">
+                            <div class="navbar-username" style="color: #fff; margin-left: 10px;"> ${nameUserCurrent}</div>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="<c:url value="/auth/signout" />">Đăng xuất</a></li>
+                        </ul>
+                    </nav>
+                </c:if>
             </div>
 
         </div>

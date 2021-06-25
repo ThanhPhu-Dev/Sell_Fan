@@ -87,88 +87,88 @@
                             để biết thời gian giao.
                         </div>
                         <div class="product-buy infoprimary__content-items">
-                            <button type="button" class="btn btn-buy"
-                                    <c:if test = "${stock < 1}">disabled</c:if>>
-                                        Mua hàng
-                                    </button>
-                            </div>
-                            <div class="contact-store">
-                                Gọi đặt mua 1800.1061 (7:30 - 22:00)
+                            <a href="/SellFan/addtocart?id=${product.getId()}" 
+                               class="btn btn-buy <c:if test = "${stock < 1}">disable-cart</c:if>">
+                                   Mua hàng
+                                   </button>
+                               </a>
+                               <div class="contact-store">
+                                   Gọi đặt mua 1800.1061 (7:30 - 22:00)
+                               </div>
+
+                               <!-- CARD KHUYẾN MÃI -->
+                               <div class="card" style="margin-top: 20px;">
+                                   <div class="card-header">
+                                       1 ưu đãi thêm
+                                   </div>
+                                   <div class="card-body sale-box d-flex fle-column">
+                                       <ion-icon name="gift-outline"></ion-icon>
+                                       <ul>
+                                           <li>Tặng cho khách lần đầu mua hàng online tại web BachhoaXANH.com</li>
+                                           <li>Mã giảm 20% tối đa 100.000đ</li>
+                                           <li>5 lần FREEship</li>
+                                           <li>Áp dụng tại Tp.HCM và 1 số khu vực, 1 SĐT nhận 1 lần (Xem chi tiết)</li>
+                                       </ul>
+                                   </div>
+                               </div>
                             </div>
 
-                            <!-- CARD KHUYẾN MÃI -->
-                            <div class="card" style="margin-top: 20px;">
-                                <div class="card-header">
-                                    1 ưu đãi thêm
-                                </div>
-                                <div class="card-body sale-box d-flex fle-column">
-                                    <ion-icon name="gift-outline"></ion-icon>
-                                    <ul>
-                                        <li>Tặng cho khách lần đầu mua hàng online tại web BachhoaXANH.com</li>
-                                        <li>Mã giảm 20% tối đa 100.000đ</li>
-                                        <li>5 lần FREEship</li>
-                                        <li>Áp dụng tại Tp.HCM và 1 số khu vực, 1 SĐT nhận 1 lần (Xem chi tiết)</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <!-- INFO TECHNICAL -->
+                            <div class="infotechnical">
+                                <h3>Thông số kỹ thuật ${product.getName()}</h3>
+                            <!-- TABLE -->
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>Loại quạt:</td>
+                                        <td>${productDetail.getType()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Đường kính quạt:</td>
+                                        <td>${productDetail.getDiameter()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chế độ gió:</td>
+                                        <td>${productDetail.getWindMode()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bảng điều khiển:</td>
+                                        <td>${productDetail.getDashBoard()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loại motor:</td>
+                                        <td>${productDetail.getMotorType()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tiện ích:</td>
+                                        <td>${productDetail.getUtility()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kích thước, trọng lượng:</td>
+                                        <td>${productDetail.getSizeWight()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thương hiệu của:</td>
+                                        <td>${productDetail.getBrandName()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sản xuất tại:</td>
+                                        <td>${productDetail.getMadeIn()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Năm ra mắt:</td>
+                                        <td>${productDetail.getDebutYear()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hãng</td>
+                                        <td>${productDetail.getCompany()}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <!-- INFO TECHNICAL -->
-                        <div class="infotechnical">
-                            <h3>Thông số kỹ thuật ${product.getName()}</h3>
-                        <!-- TABLE -->
-                        <table class="table table-striped">
-                            <tbody>
-                                <tr>
-                                    <td>Loại quạt:</td>
-                                    <td>${productDetail.getType()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Đường kính quạt:</td>
-                                    <td>${productDetail.getDiameter()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Chế độ gió:</td>
-                                    <td>${productDetail.getWindMode()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bảng điều khiển:</td>
-                                    <td>${productDetail.getDashBoard()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Loại motor:</td>
-                                    <td>${productDetail.getMotorType()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tiện ích:</td>
-                                    <td>${productDetail.getUtility()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kích thước, trọng lượng:</td>
-                                    <td>${productDetail.getSizeWight()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Thương hiệu của:</td>
-                                    <td>${productDetail.getBrandName()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Sản xuất tại:</td>
-                                    <td>${productDetail.getMadeIn()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Năm ra mắt:</td>
-                                    <td>${productDetail.getDebutYear()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Hãng</td>
-                                    <td>${productDetail.getCompany()}</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 

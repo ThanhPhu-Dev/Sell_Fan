@@ -37,4 +37,17 @@ public class CartDAO  extends AbstractDAO<Cart> implements ICartDAO {
         String sql = "DELETE FROM CART WHERE ID = ?";
         Update(sql, cartId);
     }
+
+    @Override
+    public void addCart(int productId, int userId) {
+        String sql = "INSERT INTO CART (user_id, productid, quantity) values (?, ?, ?)";
+        Update(sql, userId, productId, 1);
+    }
+
+    @Override
+    public Cart findByProductId(int productId) {
+        String sql = "SELECT * FROM CART WHERE productid = ?";
+        List<Cart> list = query(sql, new CartMappper(), productId);
+        return list.isEmpty() ? null : list.get(0);
+    }
 }

@@ -122,3 +122,8 @@
 .infotechnical h3 {
     font-size: 23px;
 }
+
+.disable-cart{
+    pointer-events: none;
+    background: #ff996b;
+}
