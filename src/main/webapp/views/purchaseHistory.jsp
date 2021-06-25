@@ -39,7 +39,7 @@
                             <img src="https://www.dienmayxanh.com/lich-su-mua-hang/Content/images/gio-hang-rong-desk.png" alt="">
                             <strong class="text-dark fs-5">Bạn chưa có đơn hàng nào</strong>
                             <button class="btn btn-outline-primary bg-white mt-2">
-                                <a href="/" class="text-decoration-none d-block px-3 py-1">Về trang chủ</a>
+                                <a href="<c:url value="/"/>home" class="text-decoration-none d-block px-3 py-1">Về trang chủ</a>
                             </button>
                             <p class="fs-09 text-dark mt-2">Khi cần hỗ trợ vui lòng gọi <span class="text-primary">1800.1061</span> (7h30 - 22h)</p>
                         </div>
