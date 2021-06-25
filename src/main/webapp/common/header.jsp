@@ -7,11 +7,13 @@
         left: 13px;
         background: #f00;
         border-radius: 50%;
-        text-align: center;
         font-size: 10px;
-        padding: 3px;
-        line-height: 10px;
         color: #fff;
+        height: 14px;
+        width: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 <header>

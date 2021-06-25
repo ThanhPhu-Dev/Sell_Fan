@@ -21,7 +21,7 @@ public class BillDetailDAO extends AbstractDAO<BillDetail> implements IBillDetai
     }
 
     @Override
-    public BillDetail create(int billId, Cart cart, BigInteger total) {
+    public BillDetail create(int billId, Cart cart, int total) {
         String sql = "INSERT INTO BILL_DETAIL(BILLID, PRODUCTID, QUANTITY, TOTAL) VALUES(?, ?, ?, ?)";
         Long id = Insert(sql, billId, cart.getProductId(), cart.getQuantity(), total);
         return findById(id.intValue());

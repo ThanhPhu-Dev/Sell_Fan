@@ -1,6 +1,7 @@
 package sellFan.controller.Cart;
 
 import sellFan.dao.iterface.ICartDAO;
+import sellFan.dao.iterface.IProductDAO;
 import sellFan.dto.Cart;
 import sellFan.dto.User;
 
@@ -20,13 +21,18 @@ public class AddQuantityController extends HttpServlet {
     @Inject
     ICartDAO _cartDAO;
 
+    @Inject
+    IProductDAO _productDAO;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         try {
             int cartId = Integer.parseInt(req.getParameter("id"));
             Cart cart = _cartDAO.findByCartId(cartId);
-            if(cart != null) {
-                int quantity = cart.getQuantity();
+            int stock = _productDAO.getProductById(cart.getProductId()).getStock();
+            int quantity = cart.getQuantity();
+
+            if(cart != null && quantity < stock) {
                 _cartDAO.updateQuantity(cartId, quantity + 1);
             }
 
