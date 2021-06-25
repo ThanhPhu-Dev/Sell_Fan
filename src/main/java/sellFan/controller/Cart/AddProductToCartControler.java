@@ -27,8 +27,12 @@ public class AddProductToCartControler extends HttpServlet {
             //Get user current
             HttpSession session = req.getSession();
             Object user = session.getAttribute("usercurrent");
+            if (user == null) {
+                res.sendRedirect(req.getContextPath() + "/auth");
+                return;
+            }
             User userCurrent = User.class.cast(user);
-            
+
             int productId = Integer.parseInt(req.getParameter("id"));
             Cart cart = _cartDAO.findByProductId(productId);
             if (cart != null) {
