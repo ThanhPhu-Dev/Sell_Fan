@@ -1,6 +1,8 @@
 package sellFan.dto;
 
 import java.math.BigInteger;
+import java.util.Date;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,4 +16,5 @@ public class Bill {
     private String Address;
     private String Requirement;
     private Integer Total;
+    private Date Date_Created;
 }
