@@ -17,7 +17,9 @@
 <header>
     <div class="header-top">
         <div class="container">
-            <img src="<c:url value="/template/image/headertop.png"/>" alt="" >
+            <a href="<c:url value="/home"/>">
+                <img src="<c:url value="/template/image/headertop.png"/>" alt="" >
+            </a>
         </div>
     </div>
     <div class="header-body">
