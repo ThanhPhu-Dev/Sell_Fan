@@ -19,7 +19,7 @@
                     </a>
                 </div>
                 <div class="header__cart" style="padding: 0 20px">
-                    <a href="/SellFan/cart" class="d-block text-decoration-none d-flex align-items-center text-white">
+                    <a href="<c:url value="/cart" />" class="d-block text-decoration-none d-flex align-items-center text-white">
                         <ion-icon name="cart-outline"></ion-icon>
                         <span class="ms-1">Giỏ hàng</span>
                     </a>
