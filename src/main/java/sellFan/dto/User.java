@@ -20,4 +20,8 @@ public class User {
     private String FullName;
     private String code;
     private Integer status;
+    private String Address;
+    private String Phone;
+    private String public_id;
+    private String public_url;
 }

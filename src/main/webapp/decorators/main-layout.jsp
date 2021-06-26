@@ -15,6 +15,8 @@
         <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/cart.css' />">
         <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/product.css'/>"/>
 
+        <link type="text/css" rel="stylesheet" href="<c:url value='/template/css/profile.css'/>"/>
+
         <!--Swiper-->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="stylesheet" href="./swiper.css">
