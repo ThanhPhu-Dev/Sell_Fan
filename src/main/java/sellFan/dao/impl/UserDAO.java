@@ -34,7 +34,8 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public void update(User user) {
-        String query = "UPDATE user SET email = ? , hashedPw = ? , fullname = ? , code = ? , status = 1 where id = ?";
-        Update(query,user.getEmail(),user.getHashedPw(),user.getFullName(), user.getCode(), user.getId());
+        StringBuilder query= new StringBuilder("UPDATE user SET email = ? , hashedPw = ? , fullname = ? , code = ? , status = 1 ,");
+        query.append(" address = ?, phone = ? , public_url = ?, public_id = ? where id = ?");
+        Update(query.toString(),user.getEmail(),user.getHashedPw(),user.getFullName(), user.getCode(), user.getAddress(), user.getPhone(), user.getPublic_url(), user.getPublic_id(), user.getId());
     }
 }
