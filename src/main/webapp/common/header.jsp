@@ -54,12 +54,13 @@
                         <nav class="navbar navbar-expand-lg">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarScrollingDropdown" 
                                role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;">
-                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                <img src="${avatarUserCurrent}"
                                      width="30" height="30" class="rounded-circle">
                                 <div class="navbar-username" style="color: #fff; margin-left: 10px;"> ${nameUserCurrent}</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="<c:url value="/auth/signout" />">Đăng xuất</a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile" />">Cá nhân</a></li>
                             </ul>
                         </nav>
                     </c:when>
