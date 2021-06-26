@@ -30,10 +30,10 @@ public class UserCurrentFilter implements Filter {
         if(session.getAttribute("usercurrent") != null){
             User u = (User) session.getAttribute("usercurrent");
             int cartCount = _cartDAO.count(u.getId());
-
+            req.setAttribute("avatarUserCurrent", u.getPublic_url());
             req.setAttribute("nameUserCurrent", u.getFullName());
             req.setAttribute("cartCount", cartCount);
-            req.setAttribute("avatarUserCurrent", u.getPublic_url());
+
         }
 
     }
