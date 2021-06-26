@@ -6,11 +6,14 @@
     <div class="content">
         <form method="post" enctype="multipart/form-data">
             <div class="form-profile bg-light">
-                <div class="avatar">
-                    <img src="${avatar}"
-                         width="200px" height="200px">
+                <div class="avatar" >
+                    <div id="avatar">
+                        <img src="${avatar}"
+                             width="200px" height="200px">
+                    </div>
                     <div class="input-avatar">
-                        <input type="file" name="fileName" class="custom-file-input">
+                        <input type="file" name="fileName" class="custom-file-input" id="avatarinput"
+                               onchange="ImagesFileAsURL()">
                     </div>
                 </div>
                 <div class="form-info">
@@ -37,3 +40,21 @@
         </form>
     </div>
 </main>
+<script type="text/javascript">
+    function ImagesFileAsURL() {
+        var fileSelected = document.getElementById('avatarinput').files;
+        if (fileSelected.length > 0) {
+            var fileToLoad = fileSelected[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoaderEvent) {
+                var srcData = fileLoaderEvent.target.result;
+                var newImage = document.createElement('img');
+                newImage.style.width = "200";
+                newImage.style.height = "200";
+                newImage.src = srcData;
+                document.getElementById('avatar').innerHTML = newImage.outerHTML;
+            }
+            fileReader.readAsDataURL(fileToLoad);
+        }
+    }
+</script>

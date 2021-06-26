@@ -68,7 +68,6 @@ public class profileController extends HttpServlet {
         upload.setHeaderEncoding("UTF-8");
         try {
             List<FileItem> fileItems = upload.parseRequest(request);
-            Iterator<FileItem> it = fileItems.iterator();
             if(!fileItems.get(0).getName().equals("")){
                 cloudinaryUtils cloudUtil = new cloudinaryUtils();
                 uploadResult = cloudUtil.uploadImage(fileItems.get(0));
