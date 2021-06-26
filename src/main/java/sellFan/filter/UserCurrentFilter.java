@@ -33,6 +33,7 @@ public class UserCurrentFilter implements Filter {
 
             req.setAttribute("nameUserCurrent", u.getFullName());
             req.setAttribute("cartCount", cartCount);
+            req.setAttribute("avatarUserCurrent", u.getPublic_url());
         }
 
     }
