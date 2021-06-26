@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <title>Register</title>
-<form action="./register" method="post">
+<form id="auth-form" action="./register" method="post" novalidate>
     <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
     <h2 class="title">Đăng Ký</h2>
     <div class="input-div one">
@@ -14,6 +14,7 @@
             <input type="email" name="email"
                    pattern="^[\w]+@gmail.com$"
                    class="input" required>
+            <div class="invalid-feedback message-regex">email: XX@gmail.com</div>
         </div>
     </div>
     <div class="input-div one">
@@ -32,6 +33,7 @@
         <div class="div">
             <h5>Mật Khẩu</h5>
             <input type="password" pattern="^[\w]{8,}" title="ít nhất 8 ký tự" name="password" class="input" required>
+            <div class="invalid-feedback message-regex">Mật khẩu ít nhất 8 ký tự</div>
         </div>
     </div>
     <c:if test="${not empty message}">
@@ -39,6 +41,6 @@
                 ${message}
         </div>
     </c:if>
-    <input type="submit" class="btn" value="Đăng Ký">
+    <input type="submit"  style="margin-top: 26px;" class="btn" value="Đăng Ký">
     <a href="<c:url value="/"/>auth">Đã có tài khoản</a>
 </form>

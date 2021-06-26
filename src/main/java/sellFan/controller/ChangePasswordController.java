@@ -27,7 +27,8 @@ public class ChangePasswordController extends HttpServlet {
         String code = req.getParameter("code");
 
         User u = userDAO.findById(Integer.parseInt(id));
-        if(u != null){
+        if(u != null) return;
+        if( u.getCode() != null){
             if(u.getCode().equals(code)){
                 req.setAttribute("id", id);
                 RequestDispatcher rd = req.getRequestDispatcher("/views/auth/changePassword.jsp");

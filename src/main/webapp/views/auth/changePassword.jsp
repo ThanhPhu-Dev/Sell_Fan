@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <title>Change Password</title>
-<form action="<c:url value="/"/>auth/changepassword" method="post">
+<form id="auth-form" action="<c:url value="/"/>auth/changepassword" method="post" novalidate>
     <input type="hidden" name="id" value="${id}">
     <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
     <h2 class="title">Thay đổi mật khẩu</h2>
@@ -13,6 +13,7 @@
         <div class="div">
             <h5>Mật Khẩu</h5>
             <input type="password" name="password" pattern="^[\w]{8,}" class="input" required>
+            <div class="invalid-feedback message-regex">Phải có ít nhất 8 ký tự</div>
         </div>
     </div>
     <c:if test="${not empty message}">

@@ -1,3 +1,9 @@
+.message-regex{
+	position: absolute;
+    bottom: -27px;
+    text-align: right;
+}
+
 .alert-message{
     margin-bottom: 0;
     margin-top: 9px;
