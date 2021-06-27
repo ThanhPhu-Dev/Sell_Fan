@@ -27,7 +27,7 @@ public class ChangePasswordController extends HttpServlet {
         String code = req.getParameter("code");
 
         User u = userDAO.findById(Integer.parseInt(id));
-        if(u != null) return;
+        if(u == null) return;
         if( u.getCode() != null){
             if(u.getCode().equals(code)){
                 req.setAttribute("id", id);

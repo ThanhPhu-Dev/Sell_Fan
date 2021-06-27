@@ -37,7 +37,7 @@ public class RegisterController extends HttpServlet {
             id=req.getParameter("id");
             code = req.getParameter("code");
             User u = userDAO.findById(Integer.parseInt(id));
-            if(u != null) return;
+            if(u == null) return;
             if(u.getCode() != null){
                 if(u.getCode().equals(code)){
                     u.setCode(null);
