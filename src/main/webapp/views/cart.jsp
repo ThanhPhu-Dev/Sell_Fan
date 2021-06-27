@@ -9,7 +9,7 @@
 <%@include file="/common/taglib.jsp" %>
 
 <title>Giỏ hàng</title>
-<main class="main bg-light">
+<main class="main bg-light pb-5">
     <div class="container">
         <div class="row">
             <c:if test="${empty carts}">
