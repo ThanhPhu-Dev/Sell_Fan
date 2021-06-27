@@ -34,7 +34,7 @@
             </div>
             <div class="col-12 col-lg-9">
                 <c:if test="${empty list}">
-                    <div class="border rounded bg-white p-5">
+                    <div class="border rounded bg-white p-5 mt-3">
                         <div class="d-flex align-items-center flex-column justify-content-center p-5">
                             <img src="https://www.dienmayxanh.com/lich-su-mua-hang/Content/images/gio-hang-rong-desk.png" alt="">
                             <strong class="text-dark fs-5">Bạn chưa có đơn hàng nào</strong>

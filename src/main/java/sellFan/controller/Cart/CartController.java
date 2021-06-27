@@ -41,13 +41,12 @@ public class CartController extends HttpServlet {
         }
         User userCurrent = User.class.cast(user);
 
-
         List<Cart> list = _cartDAO.findByUserId(userCurrent.getId());
         long provisionalPrice = getProvisionalPrice(list);
         req.setAttribute("carts", list);
         req.setAttribute("provisionalPrice", provisionalPrice);
         req.setAttribute("total", provisionalPrice);
-        req.setAttribute("customerName", userCurrent.getFullName());
+        req.setAttribute("customer", userCurrent);
         req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("/views/cart.jsp");
         rd.forward(req, res);

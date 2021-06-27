@@ -114,12 +114,12 @@
                                     <div class="row mt-2">
                                         <div class="col-12 col-md-6 mt-2">
                                             <input type="text" name="fullname" class="form-control"
-                                                   placeholder="Họ và Tên" value="${customerName}" required>
+                                                   placeholder="Họ và Tên" value="${customer.getFullName()}" required>
                                             <div class="invalid-feedback">Vui lòng điền họ tên!</div>
                                         </div>
                                         <div class="col-12 col-md-6 mt-2">
                                             <input type="text" name="phone" class="form-control"
-                                                   placeholder="Số điện thoại" required>
+                                                   placeholder="Số điện thoại" value="${customer.getPhone()}" required>
                                             <div class="invalid-feedback">Vui lòng điền số điện thoại!</div>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                         </p>
                                         <div class="col-12 mt-2">
                                             <input type="text" name="address" class="form-control"
-                                                   placeholder="Địa chỉ" required>
+                                                   placeholder="Địa chỉ" value="${customer.getAddress()}" required>
                                             <div class="invalid-feedback">Vui lòng điền địa chỉ!</div>
                                         </div>
                                         <div class="col-12 mt-2">
