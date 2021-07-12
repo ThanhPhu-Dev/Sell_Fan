@@ -38,7 +38,10 @@ public class SendMail {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject, "UTF-8");
         msg.setContent(message, "text/html; charset=UTF-8");
-        Transport.send(msg);
+        Transport transport = session.getTransport("smtp");
+        transport.connect("smtp.gmail.com",465,emailfrom,pass);
+        transport.sendMessage(msg, msg.getAllRecipients());
+//        Transport.send(msg);
     }
 
     public static String formMailForgetPassword(HttpServletRequest req, Integer id, String code){
