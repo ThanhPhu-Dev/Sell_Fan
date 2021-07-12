@@ -21,6 +21,7 @@ public class SendMail {
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
 //        properties.put("mail.smtp.socketFactory.port", "465");
 //        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
@@ -38,10 +39,10 @@ public class SendMail {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject, "UTF-8");
         msg.setContent(message, "text/html; charset=UTF-8");
-        Transport transport = session.getTransport("smtps");
-        transport.connect("smtp.gmail.com",587, emailfrom, pass);
-        transport.sendMessage(msg, msg.getAllRecipients());
-//        Transport.send(msg);
+//        Transport transport = session.getTransport("smtps");
+//        transport.connect("smtp.gmail.com",587, emailfrom, pass);
+//        transport.sendMessage(msg, msg.getAllRecipients());
+        Transport.send(msg);
     }
 
     public static String formMailForgetPassword(HttpServletRequest req, Integer id, String code){
