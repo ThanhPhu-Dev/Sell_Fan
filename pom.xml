@@ -81,14 +81,14 @@
 			<version>1.18.10</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--HashPass-->
+		<!--HashPass -->
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
 
-		<!--mail-->
+		<!--mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
@@ -134,9 +134,17 @@
 			<artifactId>cloudinary-core</artifactId>
 			<version>1.26.0</version>
 		</dependency>
+
+
+
 	</dependencies>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -145,6 +153,21 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>8.0.30.2</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
