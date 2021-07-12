@@ -11,8 +11,8 @@ public class SendMail {
 
     public static void sendMailTo(String email, String subject, String message) throws MessagingException {
         ResourceBundle mybundle = ResourceBundle.getBundle("Connect");
-        String emailfrom = mybundle.getString("Email");
-        String pass = mybundle.getString("PasswordEamil");
+        String emailfrom = System.getenv("Email");
+        String pass = System.getenv("PasswordEmail");
         Properties properties = new Properties();
         properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
