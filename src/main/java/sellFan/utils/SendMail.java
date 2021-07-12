@@ -12,7 +12,7 @@ public class SendMail {
     public static void sendMailTo(String email, String subject, String message) throws MessagingException {
         ResourceBundle mybundle = ResourceBundle.getBundle("Connect");
         String envEmail = System.getenv("Email");
-        String envPass = System.getenv("Email");
+        String envPass = System.getenv("PasswordEmail");
         String emailfrom = envEmail != null ? envEmail : mybundle.getString("Email");
         String pass = envPass != null ? envPass : mybundle.getString("PasswordEmail");
 
