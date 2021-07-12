@@ -14,7 +14,7 @@ public class SendMail {
         String emailfrom = mybundle.getString("Email");
         String pass = mybundle.getString("PasswordEamil");
         Properties properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
