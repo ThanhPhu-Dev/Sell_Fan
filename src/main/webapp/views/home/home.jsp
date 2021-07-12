@@ -26,8 +26,9 @@
                     <c:set var = "catIdDb" scope = "session" value = "${cat.getId()}"/>
                     <c:set var = "catIdLocal" scope = "session" value = "<%= catId%>"/>
                     <li class=" <c:if test = "${catIdDb == catIdLocal}">category-active</c:if>">
-                        <a href="/SellFan/home?catId=${cat.getId()}">${cat.getName()}</a>
+                        <a href=<c:url value="/home?catId=${cat.getId()}"/>>${cat.getName()}</a>
                     </li>
+
                 </c:forEach>
             </ul>
         </div>
@@ -46,7 +47,7 @@
 
         <c:forEach var="pro" items="${products}">
             <li>
-                <a href="/SellFan/product?id=${pro.getId()}">
+                <a href="<c:url value="/product?id=${pro.getId()}" />">
                     <div class="card product__item">
                         <img src="${pro.getImage()}"
                              class="card-img-top" alt="...">
