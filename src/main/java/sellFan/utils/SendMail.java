@@ -11,13 +11,18 @@ public class SendMail {
 
     public static void sendMailTo(String email, String subject, String message) throws MessagingException {
         ResourceBundle mybundle = ResourceBundle.getBundle("Connect");
-        String emailfrom = System.getenv("Email");
-        String pass = System.getenv("PasswordEmail");
+        String envEmail = System.getenv("Email");
+        String envPass = System.getenv("Email");
+        String emailfrom = envEmail != null ? envEmail : mybundle.getString("Email");
+        String pass = envPass != null ? envPass : mybundle.getString("PasswordEmail");
+
         Properties properties = new Properties();
-        properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
@@ -33,7 +38,6 @@ public class SendMail {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject, "UTF-8");
         msg.setContent(message, "text/html; charset=UTF-8");
-
         Transport.send(msg);
     }
 

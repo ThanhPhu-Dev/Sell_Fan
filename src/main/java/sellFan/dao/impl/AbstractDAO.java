@@ -26,7 +26,7 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
             connectionProps.put("password", mybundle.getString("Password"));
             connectionProps.put("characterEncoding", "UTF-8");
             String dbUrl = System.getenv("JAWSDB_URL");
-            if (!dbUrl.isEmpty()) {
+            if (dbUrl != null && !dbUrl.isEmpty()) {
                 return DriverManager.getConnection("jdbc:" + dbUrl);
             }
             return DriverManager.getConnection(url, connectionProps);
