@@ -20,11 +20,15 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://" + mybundle.getString("IP") + ":" + mybundle.getString("Port") + "/" + mybundle.getString("Database");
+            String url = "jdbc:mysql://" + mybundle.getString("IP") + ":" + mybundle.getString("Port") + "/" + mybundle.getString("Database");
             Properties connectionProps = new Properties();
             connectionProps.put("user", mybundle.getString("User"));
             connectionProps.put("password", mybundle.getString("Password"));
             connectionProps.put("characterEncoding", "UTF-8");
+            String dbUrl = System.getenv("JAWSDB_URL");
+            if (!dbUrl.isEmpty()) {
+                return DriverManager.getConnection(dbUrl);
+            }
             return DriverManager.getConnection(url, connectionProps);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -79,13 +83,13 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Date) {
-                    Date date = (Date)parameter;
+                    Date date = (Date) parameter;
                     statement.setDate(index, new java.sql.Date(date.getTime()));
                 } else if (parameter instanceof BigInteger) {
                     statement.setLong(index, ((BigInteger) parameter).longValue());
                 } else if (parameter == null) {
-					statement.setNull(index, Types.NULL);
-				}
+                    statement.setNull(index, Types.NULL);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
