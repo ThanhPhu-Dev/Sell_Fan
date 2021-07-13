@@ -39,6 +39,8 @@ public class ChangePasswordController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
         String id = req.getParameter("id");
         String pass = req.getParameter("password");
         User u = userDAO.findById(Integer.parseInt(id));

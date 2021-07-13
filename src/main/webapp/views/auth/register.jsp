@@ -42,5 +42,5 @@
         </div>
     </c:if>
     <input type="submit"  style="margin-top: 26px;" class="btn" value="Đăng Ký">
-    <a href="<c:url value="/"/>auth">Đã có tài khoản</a>
+    <a href="<c:url value="/auth"/>">Đã có tài khoản</a>
 </form>

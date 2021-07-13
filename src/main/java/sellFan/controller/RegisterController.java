@@ -26,8 +26,8 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setCharacterEncoding("utf-8");
-//        resp.setCharacterEncoding("utf-8");
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
         String id = null;
         String code = null;
         MessageUtils.setMessageToAttribute(req);
@@ -80,7 +80,6 @@ public class RegisterController extends HttpServlet {
             User u = userDAO.save(usernew);
 
             SendMail.sendMailTo(email, "Xác nhận đăng ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
-            System.out.println("thành công");
             resp.sendRedirect(req.getContextPath() + "/auth/register?message=success_sendMain_email&alert=success");
         } catch (MessagingException e) {
             e.printStackTrace();

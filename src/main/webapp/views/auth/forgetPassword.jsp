@@ -24,8 +24,8 @@
     </c:if>
     <input type="submit"  style="margin-top: 26px;" class="btn" value="Xác Nhận">
     <div class="option">
-        <a href="<c:url value="/"/>auth">Đăng nhập</a>
-        <a href="<c:url value="/"/>auth/register">Đăng ký</a>
+        <a href="<c:url value="/auth"/>">Đăng nhập</a>
+        <a href="<c:url value="/auth/register"/>">Đăng ký</a>
     </div>
 
 </form>

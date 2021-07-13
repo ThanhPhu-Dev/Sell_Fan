@@ -49,8 +49,8 @@
             fileReader.onload = function (fileLoaderEvent) {
                 var srcData = fileLoaderEvent.target.result;
                 var newImage = document.createElement('img');
-                newImage.style.width = "200";
-                newImage.style.height = "200";
+                newImage.style.width = "200px";
+                newImage.style.height = "200px";
                 newImage.src = srcData;
                 document.getElementById('avatar').innerHTML = newImage.outerHTML;
             }

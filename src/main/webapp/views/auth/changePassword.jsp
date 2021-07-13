@@ -22,5 +22,5 @@
         </div>
     </c:if>
     <input type="submit" class="btn" value="Xác Nhận">
-    <a href="<c:url value="/"/>auth">Đăng Nhập</a>
+    <a href="<c:url value="/auth"/>">Đăng Nhập</a>
 </form>

@@ -12,7 +12,7 @@
 		<div class="div">
 			<h5>Email</h5>
 			<input type="email" name="email" pattern="^[\w]+@gmail.com$"
-				   class="input" required autofocus>
+				   class="input" required>
 				  <div class="invalid-feedback message-regex">email: XX@gmail.com</div>
 		</div>
 	</div>
@@ -35,7 +35,7 @@
 
 	<input type="submit" style="margin-top: 26px;" class="btn" value="Đăng Nhập">
 	<div class="option">
-		<a href="./auth/register">Đăng ký</a>
-		<a href="<c:url value="/"/>auth/forgetpassword">Quên mật khẩu?</a>
+		<a href="<c:url value="/auth/register"/>">Đăng ký</a>
+		<a href="<c:url value="/auth/forgetpassword"/>">Quên mật khẩu?</a>
 	</div>
 </form>
