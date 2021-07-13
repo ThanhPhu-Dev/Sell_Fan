@@ -37,7 +37,7 @@ public class ForgetPasswordController extends HttpServlet {
             try {
                 u.setCode(RandomStringUtils.randomAlphabetic(10));
                 userDAO.update(u);
-                SendMail.sendMailTo(email, "Xác Nhận Quên Mật Khẩu", SendMail.formMailForgetPassword(req, u.getId(), u.getCode()));
+                SendMail.sendMailTo(email, "Xác nhận quên mật khẩu", SendMail.formMailForgetPassword(req, u.getId(), u.getCode()));
             } catch (MessagingException e) {
                 e.printStackTrace();
             }

@@ -1,6 +1,5 @@
 package sellFan.controller;
 
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import sellFan.dao.iterface.IUserDAO;
@@ -33,19 +32,25 @@ public class RegisterController extends HttpServlet {
         String code = null;
         MessageUtils.setMessageToAttribute(req);
         HttpSession session = req.getSession();
-        if(req.getParameter("action") != null){
-            id=req.getParameter("id");
+        if (req.getParameter("action") != null) {
+            id = req.getParameter("id");
             code = req.getParameter("code");
             User u = userDAO.findById(Integer.parseInt(id));
-            if(u == null) return;
-            if(u.getCode() != null){
-                if(u.getCode().equals(code)){
+            if (u == null) {
+                return;
+            }
+            if (u.getCode() != null) {
+                if (u.getCode().equals(code)) {
                     u.setCode(null);
                     u.setStatus(1);
                     userDAO.update(u);
                     session.setAttribute("usercurrent", u);
-                }else return;
-            }else return;
+                } else {
+                    return;
+                }
+            } else {
+                return;
+            }
         }
         if (session.getAttribute("usercurrent") != null) {
             resp.sendRedirect(req.getContextPath() + "/home");
@@ -74,7 +79,7 @@ public class RegisterController extends HttpServlet {
             usernew.setCode(RandomStringUtils.randomAlphabetic(10));
             User u = userDAO.save(usernew);
 
-            SendMail.sendMailTo(email, "Xác Nhận Đăng Ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
+            SendMail.sendMailTo(email, "Xác nhận đăng ký", SendMail.formMailRegister(req, u.getId(), u.getCode()));
             System.out.println("thành công");
             resp.sendRedirect(req.getContextPath() + "/auth/register?message=success_sendMain_email&alert=success");
         } catch (MessagingException e) {

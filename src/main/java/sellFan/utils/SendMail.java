@@ -35,7 +35,7 @@ public class SendMail {
         MimeMessage msg = new MimeMessage(session);
 
         msg.setFrom(new InternetAddress(emailfrom));
-        InternetAddress[] toAddresses = { new InternetAddress(email) };
+        InternetAddress[] toAddresses = {new InternetAddress(email)};
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject, "UTF-8");
         msg.setContent(message, "text/html; charset=UTF-8");
@@ -45,17 +45,17 @@ public class SendMail {
         Transport.send(msg);
     }
 
-    public static String formMailForgetPassword(HttpServletRequest req, Integer id, String code){
+    public static String formMailForgetPassword(HttpServletRequest req, Integer id, String code) {
 
         return "<p>Xin chào, để lấy lại mật khẩu vui lòng </p>"
-                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth/changepassword?id="+id+"&code="+code+"\">Nhấp Vào Đây</a></p>";
+                + "<p><a href=\"" + URLUtils.getSiteURL(req) + "/auth/changepassword?id=" + id + "&code=" + code + "\">Nhấn Vào Đây</a></p>";
     }
 
-    public static String formMailRegister(HttpServletRequest req, Integer id, String code){
+    public static String formMailRegister(HttpServletRequest req, Integer id, String code) {
 
 //        return "<p>Xin chào, cảm ơn bạn đã đăng ký vào website của chúng tôi</p>"
 //                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth\">Nhấp Vào Đây Vào trang đăng nhập</a></p>";
-        return "<p>Xin chào, cảm ơn bạn đã đăng ký vào website của chúng tôi </p>"
-                +"<p><a href=\""+URLUtils.getSiteURL(req)+"/auth/register?action=check&id="+id+"&code="+code+"\">Nhấp Vào Đây để xác thực thành công</a></p>";
+        return "<p>Xin chào, cảm ơn bạn đã đăng ký ở website của chúng tôi </p>"
+                + "<p><a href=\"" + URLUtils.getSiteURL(req) + "/auth/register?action=check&id=" + id + "&code=" + code + "\">Nhấp Vào Đây để xác thực thành công</a></p>";
     }
 }
