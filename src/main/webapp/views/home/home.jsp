@@ -33,7 +33,7 @@
             </ul>
         </div>
         <form class="d-flex ms-auto p-2 " method="GET" 
-              action="/home">
+              action="<c:url value="/home"/>">
             <input class="form-control me-2" type="search" name="name" placeholder="Tên sản phẩm">
             <c:if test = "${catIdLocal > 0}">
                 <input class="form-control me-2" name="catId" value="<%= catId%>" style="display: none">
