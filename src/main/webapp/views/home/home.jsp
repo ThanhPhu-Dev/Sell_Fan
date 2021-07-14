@@ -20,7 +20,7 @@
                 <li class="<% if (catId == -1) {
                         out.println("category-active");
                     }%>">
-                    <a href="/SellFan/home">Tất cả </a>
+                    <a href="<c:url value="/home"/>">Tất cả </a>
                 </li>
                 <c:forEach var="cat" items="${cats}">
                     <c:set var = "catIdDb" scope = "session" value = "${cat.getId()}"/>
