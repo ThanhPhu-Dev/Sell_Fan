@@ -4,7 +4,9 @@
 <title>Change Password</title>
 <form id="auth-form" action="<c:url value="/"/>auth/changepassword" method="post" novalidate>
     <input type="hidden" name="id" value="${id}">
-    <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
+    <a href="<c:url value="/"/>" style="text-align: center">
+        <img class="avatar" src="<c:url value='https://res.cloudinary.com/nguyenhieunghia/image/upload/v1626239734/avatar/1-logo-the-gioi-di-song-dien-may-xanh_lhjsao.jpg'/>">
+    </a>
     <h2 class="title">Thay đổi mật khẩu</h2>
     <div class="input-div pass">
         <div class="i">

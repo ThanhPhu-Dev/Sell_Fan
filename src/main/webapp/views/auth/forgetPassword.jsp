@@ -3,7 +3,9 @@
 <%@include file="/common/taglib.jsp"%>
 <title>Forget Password</title>
 <form id="auth-form" action="<c:url value="/"/>auth/forgetpassword" method="post" novalidate>
-    <img class="avatar" src="<c:url value='/template/image/avatar.svg'/>">
+    <a href="<c:url value="/" />" style="text-align: center">
+        <img class="avatar" src="<c:url value='https://res.cloudinary.com/nguyenhieunghia/image/upload/v1626239734/avatar/1-logo-the-gioi-di-song-dien-may-xanh_lhjsao.jpg'/>">
+    </a>
     <h2 class="title">Quên mật khẩu</h2>
     <div class="input-div one">
         <div class="i">
