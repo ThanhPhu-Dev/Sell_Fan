@@ -51,7 +51,7 @@
                         </ul>
                     </div>
 
-                    <div class="tachnical-img">
+                    <div class="tachnical-img" style="margin-bottom: 20px">
                         <img src="${productDetail.getImage()}" alt="" >
                     </div>
                 </div>
