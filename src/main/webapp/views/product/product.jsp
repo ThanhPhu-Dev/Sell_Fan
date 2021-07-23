@@ -63,7 +63,7 @@
                             <span>Giá ở <span style="color: #009EE1;">tất cả các cửa hàng</span></span>
                             <p>
                                 <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.getPrice()}" />
-                                ₫ 
+                                ₫
                             </p>
                         </div>
                         <div class="product-status infoprimary__content-items">
@@ -87,7 +87,7 @@
                             để biết thời gian giao.
                         </div>
                         <div class="product-buy infoprimary__content-items">
-                            <a href="/SellFan/addtocart?id=${product.getId()}" 
+                            <a href="<c:url value="/addtocart?id=${product.getId()}"/>"
                                class="btn btn-buy <c:if test = "${stock < 1}">disable-cart</c:if>">
                                    Mua hàng
                                    </button>

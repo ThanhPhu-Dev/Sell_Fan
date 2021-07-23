@@ -20,7 +20,7 @@
                 <li class="<% if (catId == -1) {
                         out.println("category-active");
                     }%>">
-                    <a href="/SellFan/home">Tất cả </a>
+                    <a href="<c:url value="/home"/>">Tất cả </a>
                 </li>
                 <c:forEach var="cat" items="${cats}">
                     <c:set var = "catIdDb" scope = "session" value = "${cat.getId()}"/>
@@ -32,7 +32,7 @@
                 </c:forEach>
             </ul>
         </div>
-        <form class="d-flex ms-auto p-2 " method="GET" 
+        <form class="d-flex ms-auto p-2 " method="GET"
               action="<c:url value="/home"/>">
             <input class="form-control me-2" type="search" name="name" placeholder="Tên sản phẩm">
             <c:if test = "${catIdLocal > 0}">
