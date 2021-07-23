@@ -45,9 +45,9 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
     }
 
     @Override
-    public Cart findByProductId(int productId) {
-        String sql = "SELECT * FROM CART WHERE productid = ?";
-        List<Cart> list = query(sql, new CartMappper(), productId);
+    public Cart findByProductId(int productId, int userId) {
+        String sql = "SELECT * FROM CART WHERE productid = ? AND user_id = ?";
+        List<Cart> list = query(sql, new CartMappper(), productId, userId);
         return list.isEmpty() ? null : list.get(0);
     }
 
